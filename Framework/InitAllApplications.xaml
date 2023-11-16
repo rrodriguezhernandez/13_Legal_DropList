@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1874,6241</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,8174</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -120,18 +120,14 @@
       <AssemblyReference>System.Private.Xml</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1220,6176" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1220,8109" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ArriveNow_Username" />
       <Variable x:TypeArguments="ss:SecureString" Name="ArriveNow_Password" />
       <Variable x:TypeArguments="x:String" Name="GDriveReportFolder" />
       <Variable x:TypeArguments="s:String[]" Default="[{&quot;Execution DateTime&quot;, &quot;CarrierCode&quot;, &quot;CarrierName&quot;, &quot;SalesRep&quot;, &quot;CurrentSalesRep&quot;, &quot;Status&quot;, &quot;Remarks&quot;}]" Name="ArrayHeaders" />
       <Variable x:TypeArguments="x:String" Default="https://portal.arrivelogistics.com/app/UserHome" Name="ArrivePortalURL" />
-      <Variable x:TypeArguments="x:String" Name="ArriveNowURL">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">https://xlr8.arrivelogistics.com/#/</Literal>
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="https://xlr8.arrivelogistics.com/#/" Name="ArriveNowURL" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -154,14 +150,14 @@
         <OutArgument x:TypeArguments="x:String">[GDriveReportFolder]</OutArgument>
       </ui:GetRobotAsset.Value>
     </ui:GetRobotAsset>
-    <Sequence DisplayName="Create execution report file" sap:VirtualizedContainerService.HintSize="1158,433" sap2010:WorkflowViewState.IdRef="Sequence_32">
+    <Sequence DisplayName="Create execution report file" sap:VirtualizedContainerService.HintSize="1158,2366" sap2010:WorkflowViewState.IdRef="Sequence_32">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uga:CreateSpreadsheetConnections BrowserParentFolderFriendlyName="{x:Null}" BrowserParentFolderId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ParentFolderExisting="{x:Null}" AuthScopesInvalid="False" ConflictResolution="[UiPath.GSuite.Activities.Drive.Enums.ConflictBehavior.Replace]" ConnectionId="142ba00f-7292-4e10-92b5-4df36a73847a" DisplayName="Create Spreadsheet" FirstSheetName="ExecutionReport" sap:VirtualizedContainerService.HintSize="388,203" sap2010:WorkflowViewState.IdRef="CreateSpreadsheetConnections_3" ManualEntryParentFolderId="[GDriveReportFolder.ToString]" NewSpreadsheet="[out_CurrReportFilepath]" ParentFolderInputMode="UrlOrId" SpreadsheetName="[&quot;CarrierDropList Process - Execution Report for &quot; + DateTime.Now.ToString(&quot;M/d/yyyy&quot;)]" UseConnectionService="True">
+      <uga:CreateSpreadsheetConnections BrowserParentFolderFriendlyName="{x:Null}" BrowserParentFolderId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ParentFolderExisting="{x:Null}" AuthScopesInvalid="False" ConflictResolution="[UiPath.GSuite.Activities.Drive.Enums.ConflictBehavior.Replace]" ConnectionId="142ba00f-7292-4e10-92b5-4df36a73847a" DisplayName="Create Spreadsheet" FirstSheetName="ExecutionReport" sap:VirtualizedContainerService.HintSize="484,203" sap2010:WorkflowViewState.IdRef="CreateSpreadsheetConnections_3" ManualEntryParentFolderId="[GDriveReportFolder.ToString]" NewSpreadsheet="[out_CurrReportFilepath]" ParentFolderInputMode="UrlOrId" SpreadsheetName="[&quot;CarrierDropList Process - Execution Report for &quot; + DateTime.Now.ToString(&quot;M/d/yyyy&quot;)]" UseConnectionService="True">
         <uga:CreateSpreadsheetConnections.FolderIdBackup>
           <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="UrlOrId">
             <usau:BackupSlot.BackupValues>
@@ -182,7 +178,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </uga:CreateSpreadsheetConnections>
-      <ugas:GoogleSheetsApplicationScope ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" FileId="{x:Null}" Filename="{x:Null}" ParentFolderId="{x:Null}" ParentFolderPath="{x:Null}" SpreadsheetName="{x:Null}" Timeout="{x:Null}" Account="svc_rpabot_dev02@arrivelogistics.com" Action="UseExisting" Connector="uipath-google-sheets" DisplayName="Use Google Spreadsheet" sap:VirtualizedContainerService.HintSize="388,79" sap2010:WorkflowViewState.IdRef="GoogleSheetsApplicationScope_1" Mode="EnterId" SpreadsheetId="[out_CurrReportFilepath.ID]" UseConnectionService="False" UserEmail="svc_rpabot_dev02@arrivelogistics.com">
+      <ugas:GoogleSheetsApplicationScope ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" FileId="{x:Null}" Filename="{x:Null}" ParentFolderId="{x:Null}" ParentFolderPath="{x:Null}" SpreadsheetName="{x:Null}" Timeout="{x:Null}" Account="svc_rpabot_dev02@arrivelogistics.com" Action="UseExisting" Connector="uipath-google-sheets" DisplayName="Use Google Spreadsheet" sap:VirtualizedContainerService.HintSize="484,2012" sap2010:WorkflowViewState.IdRef="GoogleSheetsApplicationScope_1" Mode="EnterId" SpreadsheetId="[out_CurrReportFilepath.ID]" UseConnectionService="False" UserEmail="svc_rpabot_dev02@arrivelogistics.com">
         <ugas:GoogleSheetsApplicationScope.Body>
           <ActivityAction x:TypeArguments="ugas:IGoogleSheetTarget">
             <ActivityAction.Argument>
@@ -216,7 +212,7 @@
         </ugas:GoogleSheetsApplicationScope.CredentialSecret>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
