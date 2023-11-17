@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,6525</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1874,7638</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -59,6 +59,7 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.GSuite.Activities.Contracts</x:String>
       <x:String>UiPath.GSuite.Activities.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive.Filters</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -121,14 +122,14 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1220,6460" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1220,7573" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ArriveNow_Username" />
       <Variable x:TypeArguments="ss:SecureString" Name="ArriveNow_Password" />
       <Variable x:TypeArguments="x:String" Name="GDriveReportFolder" />
       <Variable x:TypeArguments="s:String[]" Default="[{&quot;Execution DateTime&quot;, &quot;CarrierCode&quot;, &quot;CarrierName&quot;, &quot;SalesRep&quot;, &quot;CurrentSalesRep&quot;, &quot;Status&quot;, &quot;Remarks&quot;}]" Name="ArrayHeaders" />
-      <Variable x:TypeArguments="x:String" Default="https://portal.arrivelogistics.com/app/UserHome" Name="ArrivePortalURL" />
-      <Variable x:TypeArguments="x:String" Default="https://xlr8.arrivelogistics.com/#/" Name="ArriveNowURL" />
+      <Variable x:TypeArguments="x:String" Name="ArrivePortalURL" />
+      <Variable x:TypeArguments="x:String" Name="ArriveNowURL" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -137,7 +138,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="1158,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening Chrome browser and creating execution report&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="1158,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="1158,81" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Boolean">[out_ArrivePortalException]</OutArgument>
       </Assign.To>
@@ -146,19 +147,60 @@
       </Assign.Value>
     </Assign>
     <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;ArriveNow_CredentialName&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="1158,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[ArriveNow_Password]" Username="[ArriveNow_Username]" />
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;GDriveReportFolder&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="1158,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1158,516" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,437" sap2010:WorkflowViewState.IdRef="Sequence_34">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;ArrivePortalURL&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_3">
+            <ui:GetRobotAsset.Value>
+              <OutArgument x:TypeArguments="x:String">[ArrivePortalURL]</OutArgument>
+            </ui:GetRobotAsset.Value>
+          </ui:GetRobotAsset>
+          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;GDriveReportFolder&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+            <ui:GetRobotAsset.Value>
+              <OutArgument x:TypeArguments="x:String">[GDriveReportFolder]</OutArgument>
+            </ui:GetRobotAsset.Value>
+          </ui:GetRobotAsset>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="13_GDriveReportFolder" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="1158,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
       <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[GDriveReportFolder]</OutArgument>
       </ui:GetRobotAsset.Value>
     </ui:GetRobotAsset>
-    <Sequence DisplayName="Create execution report file" sap:VirtualizedContainerService.HintSize="1158,717" sap2010:WorkflowViewState.IdRef="Sequence_32">
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="13_ArrivePortalURL" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="1158,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_5">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[ArrivePortalURL]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <Sequence DisplayName="Create execution report file" sap:VirtualizedContainerService.HintSize="1158,909" sap2010:WorkflowViewState.IdRef="Sequence_32">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="ugdm:GDriveRemoteItem[]" Name="GDriveList" />
+      </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uga:CreateSpreadsheetConnections BrowserParentFolderFriendlyName="{x:Null}" BrowserParentFolderId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ParentFolderExisting="{x:Null}" AuthScopesInvalid="False" ConflictResolution="[UiPath.GSuite.Activities.Drive.Enums.ConflictBehavior.Replace]" ConnectionId="66ad403e-5a17-4e6f-87b2-6c139e9ea210" DisplayName="Create Spreadsheet" FirstSheetName="Sheet1" sap:VirtualizedContainerService.HintSize="484,203" sap2010:WorkflowViewState.IdRef="CreateSpreadsheetConnections_4" ManualEntryParentFolderId="[GDriveReportFolder.ToString]" NewSpreadsheet="[out_CurrReportFilepath]" ParentFolderInputMode="UrlOrId" SpreadsheetName="[&quot;CarrierDropList Process - Execution Report for &quot; + DateTime.Now.ToString(&quot;M/d/yyyy&quot;)]" UseConnectionService="True">
+      <uga:GetFileListConnections BrowserLocation="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Filter="{x:Null}" LocationFriendlyName="{x:Null}" AuthScopesInvalid="False" ConnectionId="81551147-a118-4219-be5a-6198ab047395" DisplayName="Get File/Folder List" sap:VirtualizedContainerService.HintSize="484,152" sap2010:WorkflowViewState.IdRef="GetFileListConnections_1" LocationInputMode="EnterId" ManualEntryLocation="[GDriveReportFolder]" MaxResults="200" Result="[GDriveList]" StarredOnly="False" UseConnectionService="True" WhatToReturn="Files">
+        <uga:GetFileListConnections.FolderIdBackup>
+          <usau:BackupSlot x:TypeArguments="ugade:EDriveMode" StoredValue="EnterId">
+            <usau:BackupSlot.BackupValues>
+              <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="2">
+                <x:Null />
+                <x:Null />
+              </scg:List>
+            </usau:BackupSlot.BackupValues>
+          </usau:BackupSlot>
+        </uga:GetFileListConnections.FolderIdBackup>
+      </uga:GetFileListConnections>
+      <uga:CreateSpreadsheetConnections BrowserParentFolderFriendlyName="{x:Null}" BrowserParentFolderId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ParentFolderExisting="{x:Null}" AuthScopesInvalid="False" ConflictResolution="[UiPath.GSuite.Activities.Drive.Enums.ConflictBehavior.Replace]" ConnectionId="66ad403e-5a17-4e6f-87b2-6c139e9ea210" DisplayName="Create Spreadsheet" FirstSheetName="ExecutionReport" sap:VirtualizedContainerService.HintSize="484,203" sap2010:WorkflowViewState.IdRef="CreateSpreadsheetConnections_4" ManualEntryParentFolderId="[GDriveReportFolder.ToString]" NewSpreadsheet="[out_CurrReportFilepath]" ParentFolderInputMode="UrlOrId" SpreadsheetName="[&quot;CarrierDropList Process - Execution Report for &quot; + DateTime.Now.ToString(&quot;M/d/yyyy&quot;)]" UseConnectionService="True">
         <uga:CreateSpreadsheetConnections.FolderIdBackup>
           <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="UrlOrId">
             <usau:BackupSlot.BackupValues>
@@ -186,11 +228,11 @@
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="A1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_1" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(0)]" />
-              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="B1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_2" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(1)]" />
-              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="C1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_3" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(2)]" />
-              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="D1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_4" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(3)]" />
-              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="E1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_5" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(4)]" />
+              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="A1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,194" sap2010:WorkflowViewState.IdRef="WriteCell_1" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(0)]" />
+              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="B1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,194" sap2010:WorkflowViewState.IdRef="WriteCell_2" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(1)]" />
+              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="C1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,194" sap2010:WorkflowViewState.IdRef="WriteCell_3" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(2)]" />
+              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="D1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,194" sap2010:WorkflowViewState.IdRef="WriteCell_4" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(3)]" />
+              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="E1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,194" sap2010:WorkflowViewState.IdRef="WriteCell_5" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(4)]" />
               <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="F1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_6" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(5)]" />
               <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="G1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_7" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(6)]" />
             </Sequence>
@@ -214,7 +256,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ugas:GoogleSheetsApplicationScope>
     </Sequence>
-    <Sequence DisplayName="Open Arrive portal" sap:VirtualizedContainerService.HintSize="1158,4892" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <Sequence DisplayName="Open Arrive portal" sap:VirtualizedContainerService.HintSize="1158,5075" sap2010:WorkflowViewState.IdRef="Sequence_11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -414,6 +456,11 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </uix:NApplicationCard>
+      <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;ArriveNowURL&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="1096,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_4">
+        <ui:GetRobotAsset.Value>
+          <OutArgument x:TypeArguments="x:String">[ArriveNowURL]</OutArgument>
+        </ui:GetRobotAsset.Value>
+      </ui:GetRobotAsset>
       <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Open Truck Entry page" sap:VirtualizedContainerService.HintSize="1096,1641" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
