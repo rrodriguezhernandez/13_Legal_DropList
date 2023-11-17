@@ -6,7 +6,7 @@
     <x:Property Name="out_BizExcpt" Type="OutArgument(x:Boolean)" />
     <x:Property Name="out_CurrentAsignee" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1234,5431</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1874,6087</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -109,11 +109,11 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1112,5366" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap:VirtualizedContainerService.HintSize="1112,6022" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Default="ROLELTX" Name="CarrierCode" />
-      <Variable x:TypeArguments="x:String" Default="Roldan Expedited Services Inc" Name="CarrierName" />
-      <Variable x:TypeArguments="x:String" Default="STEAL" Name="CurrentRep" />
+      <Variable x:TypeArguments="x:String" Name="CarrierCode" />
+      <Variable x:TypeArguments="x:String" Name="CarrierName" />
+      <Variable x:TypeArguments="x:String" Name="CurrentRep" />
       <Variable x:TypeArguments="x:String" Name="TruckEntryURL" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -121,14 +121,30 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;ArriveTruckEntryURL&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="1050,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="13_ArriveTruckEntryURL" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="1050,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
       <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[TruckEntryURL]</OutArgument>
       </ui:GetRobotAsset.Value>
     </ui:GetRobotAsset>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1050,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1050,333" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,254" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;ArriveTruckEntryURL&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+            <ui:GetRobotAsset.Value>
+              <OutArgument x:TypeArguments="x:String">[TruckEntryURL]</OutArgument>
+            </ui:GetRobotAsset.Value>
+          </ui:GetRobotAsset>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:MultipleAssign DisplayName="Reset Variable values" sap:VirtualizedContainerService.HintSize="1050,240" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
       <ui:MultipleAssign.AssignOperations>
-        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:Boolean">[out_BizExcpt]</OutArgument>
@@ -145,16 +161,40 @@
               <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[CarrierCode]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("CarrierCode").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[CarrierName]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("CarrierName").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[CurrentRep]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("CurrentRep").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Working on Truck Entry Page" sap:VirtualizedContainerService.HintSize="1050,4885" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Working on Truck Entry Page" sap:VirtualizedContainerService.HintSize="1050,5075" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,4668" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,4858" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -381,7 +421,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:IfElseIf>
-            <If Condition="[Not out_BizExcpt]" sap:VirtualizedContainerService.HintSize="954,882" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[Not out_BizExcpt]" sap:VirtualizedContainerService.HintSize="954,1072" sap2010:WorkflowViewState.IdRef="If_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -389,13 +429,13 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,700" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence sap:VirtualizedContainerService.HintSize="528,890" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click on Edit" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V3">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click on Edit" sap:VirtualizedContainerService.HintSize="486,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://xlr8.arrivelogistics.com/#/truck-entry" CvElementArea="960, 292, 22, 21" CvType="Icon" DesignTimeRectangle="1093, 293, 20, 20" DesignTimeScaleFactor="1" FriendlyName="'edit'" FullSelectorArgument="&lt;webctrl parentid='carrier-details-tab-toolbar' tag='I' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='carrier-details-tab-toolbar' tag='I' type='' class='md-icon material-icons' aaname='edit' check:innerText='edit' /&gt;" Guid="3af129a3-93bb-4131-9bfc-cc31c6d6c8de" InformativeScreenshot="736d9303956c774a62b1081d5c9866e5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Truck Entry' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
@@ -406,23 +446,34 @@
                       </uix:TargetAnchorable>
                     </uix:NClick.Target>
                   </uix:NClick>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Remove value from Asigned To textbox" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="DebuggerApi" ScopeIdentifier="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V3">
-                    <uix:NTypeInto.Target>
-                      <uix:TargetAnchorable BrowserURL="https://xlr8.arrivelogistics.com/#/truck-entry" CvElementArea="807, 444, 291, 33" CvType="InputBox" DesignTimeRectangle="810, 453, 286, 15" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Adam Swade'" FullSelectorArgument="&lt;webctrl id='carrier-editor-assigned-to' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='carrier-editor-assigned-to' tag='INPUT' type='text' class='md-text-field md-text-field--floating-margin md-full-width md-text' aaname='Assigned To ' /&gt;" Guid="c8991fba-766c-46b0-affe-193403dead7f" InformativeScreenshot="323c8d520e17e1852f87e6261a574727.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Truck Entry' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
-                        <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                            <uix:Target CvTextArea="808, 432, 87, 17" CvTextArgument="Assigned To" CvType="Text" DesignTimeRectangle="810, 432, 84, 15" ElementType="Text" FriendlyName="'Assigned To'" FullSelectorArgument="&lt;webctrl parentid='carrier-editor-assigned-to-menu' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='carrier-editor-assigned-to-menu' tag='LABEL' type='' class='md-floating-label md-floating-label--floating md-text--theme-primary' aaname='Assigned To ' check:innerText='Assigned To' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFgAAAATCAYAAAAUCsqbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPhSURBVFhH7ZdLSFVRFIYb9aSid0QvogdRERH0oCCIIoqKiggaFA1q0iSKGjaOBlHQoEmTCCIoiKCIBlFUpqmlaRrq9XnV1PSqXa96fa3Wtz27jsfjvb5vij9suK59ztrr/Hutfy0nyQRGFBMEjzAmCB5hTBA8wvAluLi1XdamFcmuzDKJdHY51uFBuKNLrhbVyMPqRseSGGQ0tcrilIDcDIYcyz9gm/wxv8/Fe7zfH/gSfLeiXmYk5cvc5AJ5GWpyrMODvOY2WZlaJEdzyh1LYhCL4Lr2TrPPetMQkXVpxXLqR+VfW3YkKtGu/iVeL4I7dR38Xi5bM0pkjWbxxUB198Y4QyyC3aiItsuG9GI5l/fTsQwMvQhOD7fK0s+FcrsiZJzinEPc+NDYLBu/FMsULZdpunZmlkqmBmwRa98vYJ5frzbKb15yQC7kV5ksf1zz2+zv+VYm2zNK5URuhfGH371ZQamMdph9kN/SJvuzg2bfLyZ+71Ab785MKpDDmkScNRSCn/wKmyQkbir+iFalOybQi+DrJbWyXAnOaorK87omc8sPXHpp9Xm3fnRSY4uREMixeh1v3xswkkGQPMOzLKpn1qeCHgRDzGkt09Rwi9wI1sls3b+iWg5qtaR5x575tqFZtumFYGMP3YfcJSmFRvt55oBeBsQMlmDInaMxIB3EhF/871O/nGfRg2AIIFOQCKSC4DZ/LZGTmjkWEI+ja87HAUi5o7pd39EZd98bMHo/XzOJy7SA2EV6sd4Mtg0XjdyicZHFAB8kwjsl1uKRvovtaW3YLPoJVWkxVIk4pBzBDRxZ3KtsMN9i4wY9COYjeYCALdDgZU5GA9yd1xKeqrePlED+6/qIsYN4+96AkQMqJre52z/wI5jlhtuGD9vh3ctWASTyXe4LGArB1nbGQ7qfzx4EQ6ZfoJDlvn2AFOAIrZuu+oM+uke6vva9AV8qrJHVKhEB1VCLgRKMrxWphfIqFDEfaRdJQbkSx0IlmFK2GHWCrXYeVyLcQRIUWmY19JmW27Gc7mcskAMcY4u37w24vxIRi+Bb5SGjyfZ5QMXYUQqJWqBnJFQiaGR0VXdDs6Dx8cHvtdtDOJJBx6ZZsGguXA6XFG/fG7D9O16Ti0Uwfjfp1LLKmTwg77JWBvMrv0ejyXEu5/s2Oe6AxmZJ8AJiKTE7E6OpEEJnZ0EIo5ZFrH2/gL1jGkFyXn8JBoxhND1GNPwwmUCCBWMcVUg8jGn0BmRlsASDQY1piYBbu8H9qgZT0nT/sY6EE0xmUcpnNUMoNSSCbLYz7FjHf5HBL7TBWUnx+y9sLOO/IHj8QuQP9hls1RpQf7oAAAAASUVORK5CYII=" SearchSteps="FuzzySelector" />
-                          </scg:List>
-                        </uix:TargetAnchorable.Anchors>
-                      </uix:TargetAnchorable>
-                    </uix:NTypeInto.Target>
-                    <uix:NTypeInto.Text>
-                      <InArgument x:TypeArguments="x:String">
-                        <Literal x:TypeArguments="x:String" Value="" />
-                      </InArgument>
-                    </uix:NTypeInto.Text>
-                  </uix:NTypeInto>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Submit'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V3">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,408" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,329" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Remove value from Asigned To textbox" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="DebuggerApi" ScopeIdentifier="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://xlr8.arrivelogistics.com/#/truck-entry" CvElementArea="807, 444, 291, 33" CvType="InputBox" DesignTimeRectangle="810, 453, 286, 15" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Adam Swade'" FullSelectorArgument="&lt;webctrl id='carrier-editor-assigned-to' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='carrier-editor-assigned-to' tag='INPUT' type='text' class='md-text-field md-text-field--floating-margin md-full-width md-text' aaname='Assigned To ' /&gt;" Guid="c8991fba-766c-46b0-affe-193403dead7f" InformativeScreenshot="323c8d520e17e1852f87e6261a574727.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Truck Entry' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CvTextArea="808, 432, 87, 17" CvTextArgument="Assigned To" CvType="Text" DesignTimeRectangle="810, 432, 84, 15" ElementType="Text" FriendlyName="'Assigned To'" FullSelectorArgument="&lt;webctrl parentid='carrier-editor-assigned-to-menu' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='carrier-editor-assigned-to-menu' tag='LABEL' type='' class='md-floating-label md-floating-label--floating md-text--theme-primary' aaname='Assigned To ' check:innerText='Assigned To' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFgAAAATCAYAAAAUCsqbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPhSURBVFhH7ZdLSFVRFIYb9aSid0QvogdRERH0oCCIIoqKiggaFA1q0iSKGjaOBlHQoEmTCCIoiKCIBlFUpqmlaRrq9XnV1PSqXa96fa3Wtz27jsfjvb5vij9suK59ztrr/Hutfy0nyQRGFBMEjzAmCB5hTBA8wvAluLi1XdamFcmuzDKJdHY51uFBuKNLrhbVyMPqRseSGGQ0tcrilIDcDIYcyz9gm/wxv8/Fe7zfH/gSfLeiXmYk5cvc5AJ5GWpyrMODvOY2WZlaJEdzyh1LYhCL4Lr2TrPPetMQkXVpxXLqR+VfW3YkKtGu/iVeL4I7dR38Xi5bM0pkjWbxxUB198Y4QyyC3aiItsuG9GI5l/fTsQwMvQhOD7fK0s+FcrsiZJzinEPc+NDYLBu/FMsULZdpunZmlkqmBmwRa98vYJ5frzbKb15yQC7kV5ksf1zz2+zv+VYm2zNK5URuhfGH371ZQamMdph9kN/SJvuzg2bfLyZ+71Ab785MKpDDmkScNRSCn/wKmyQkbir+iFalOybQi+DrJbWyXAnOaorK87omc8sPXHpp9Xm3fnRSY4uREMixeh1v3xswkkGQPMOzLKpn1qeCHgRDzGkt09Rwi9wI1sls3b+iWg5qtaR5x575tqFZtumFYGMP3YfcJSmFRvt55oBeBsQMlmDInaMxIB3EhF/871O/nGfRg2AIIFOQCKSC4DZ/LZGTmjkWEI+ja87HAUi5o7pd39EZd98bMHo/XzOJy7SA2EV6sd4Mtg0XjdyicZHFAB8kwjsl1uKRvovtaW3YLPoJVWkxVIk4pBzBDRxZ3KtsMN9i4wY9COYjeYCALdDgZU5GA9yd1xKeqrePlED+6/qIsYN4+96AkQMqJre52z/wI5jlhtuGD9vh3ctWASTyXe4LGArB1nbGQ7qfzx4EQ6ZfoJDlvn2AFOAIrZuu+oM+uke6vva9AV8qrJHVKhEB1VCLgRKMrxWphfIqFDEfaRdJQbkSx0IlmFK2GHWCrXYeVyLcQRIUWmY19JmW27Gc7mcskAMcY4u37w24vxIRi+Bb5SGjyfZ5QMXYUQqJWqBnJFQiaGR0VXdDs6Dx8cHvtdtDOJJBx6ZZsGguXA6XFG/fG7D9O16Ti0Uwfjfp1LLKmTwg77JWBvMrv0ejyXEu5/s2Oe6AxmZJ8AJiKTE7E6OpEEJnZ0EIo5ZFrH2/gL1jGkFyXn8JBoxhND1GNPwwmUCCBWMcVUg8jGn0BmRlsASDQY1piYBbu8H9qgZT0nT/sY6EE0xmUcpnNUMoNSSCbLYz7FjHf5HBL7TBWUnx+y9sLOO/IHj8QuQP9hls1RpQf7oAAAAASUVORK5CYII=" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.Text>
+                            <InArgument x:TypeArguments="x:String">
+                              <Literal x:TypeArguments="x:String" Value="" />
+                            </InArgument>
+                          </uix:NTypeInto.Text>
+                        </uix:NTypeInto>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                  </ui:CommentOut>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Submit'" sap:VirtualizedContainerService.HintSize="486,157" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://xlr8.arrivelogistics.com/#/truck-entry" CvTextArea="1723, 1102, 49, 12" CvTextArgument="SUBMIT" CvType="Text" DesignTimeRectangle="1716, 1091, 64, 36" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Submit'" FullSelectorArgument="&lt;webctrl aaname='Submit' parentid='modal-confirmation' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Submit' parentid='modal-confirmation' tag='BUTTON' type='button' class='md-btn md-btn--flat md-btn--text md-pointer--hover md-text md-inline-block md-btn--dialog button__confirm' check:innerText='SUBMIT' /&gt;" Guid="b057df76-84df-4ad3-a4db-9dbcf4a23e6e" InformativeScreenshot="4c681cce71a4e0e3d301ebfa2bd1f882.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Truck Entry' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
