@@ -59,6 +59,7 @@
       <x:String>UiPath.GSuite.Sheets.Contracts</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>UiPath.GSuite.Activities.Contracts</x:String>
+      <x:String>UiPath.GSuite.Activities.Gmail.Enums</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -249,7 +250,7 @@
           <Transition.To>
             <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="231,188" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
-                <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="579,1378" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="584,1409" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -257,7 +258,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="541,1128" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                    <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="541,1159" sap2010:WorkflowViewState.IdRef="Sequence_28">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -318,7 +319,7 @@
                           </Sequence>
                         </If.Else>
                       </If>
-                      <ui:MultipleAssign DisplayName="Update variable values for reporting" sap:VirtualizedContainerService.HintSize="479,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                      <ui:MultipleAssign DisplayName="Update variable values for reporting" sap:VirtualizedContainerService.HintSize="479,178" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -335,6 +336,16 @@
                               </ui:AssignOperation.To>
                               <ui:AssignOperation.Value>
                                 <InArgument x:TypeArguments="x:String">Succesful</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[CurrentAsignee]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <Literal x:TypeArguments="x:String" Value="" />
+                                </InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
                           </scg:List>
@@ -384,7 +395,7 @@
                     </Sequence>
                   </TryCatch.Try>
                   <TryCatch.Catches>
-                    <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="545,21" sap2010:WorkflowViewState.IdRef="Catch`1_9">
+                    <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="550,21" sap2010:WorkflowViewState.IdRef="Catch`1_9">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -489,7 +500,7 @@
                         </Sequence>
                       </ActivityAction>
                     </Catch>
-                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="545,21" sap2010:WorkflowViewState.IdRef="Catch`1_10">
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="550,21" sap2010:WorkflowViewState.IdRef="Catch`1_10">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -681,7 +692,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <State.Transitions>
-                <Transition DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="451.333333333333,521.333333333333" sap2010:WorkflowViewState.IdRef="Transition_4">
+                <Transition DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="450,508" sap2010:WorkflowViewState.IdRef="Transition_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:PointCollection x:Key="ConnectorLocation">303.633333333333,628.666666666667 468.633333333333,628.666666666667 468.633333333333,633 650.5,633 650.5,72.11666666666666 477,72.11666666666666</av:PointCollection>
@@ -971,9 +982,9 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="694,1720" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="632,1530" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
-                                <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="648,1575" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                                <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="586,1385" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -981,21 +992,21 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <TryCatch.Try>
-                                    <Sequence sap:VirtualizedContainerService.HintSize="610,1347" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                    <Sequence sap:VirtualizedContainerService.HintSize="548,1157" sap2010:WorkflowViewState.IdRef="Sequence_41">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="548,303" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,303" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                                         <ui:CommentOut.Body>
-                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,224" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,224" sap2010:WorkflowViewState.IdRef="Sequence_48">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
                                                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                               </ui:InvokeWorkflowFile.Arguments>
@@ -1009,119 +1020,109 @@
                                           </Sequence>
                                         </ui:CommentOut.Body>
                                       </ui:CommentOut>
-                                      <Sequence DisplayName="Updating master report" sap:VirtualizedContainerService.HintSize="548,893" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                      <Sequence DisplayName="Updating master report" sap:VirtualizedContainerService.HintSize="486,703" sap2010:WorkflowViewState.IdRef="Sequence_40">
                                         <Sequence.Variables>
                                           <Variable x:TypeArguments="x:String" Name="MasterReportPath" />
                                         </Sequence.Variables>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,782" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-                                          <ui:CommentOut.Body>
-                                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,703" sap2010:WorkflowViewState.IdRef="Sequence_48">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                              <uga:WriteRowConnections ArrayRow="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DataRow="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="13_Legal_DropList_MasterReport" BrowserItemId="1-ITESKpYf0SvLQBAhf7nzoe4VQuSVeqarabQo1MsvXc" ConnectionId="37abbd01-4f4c-45fb-8efd-72e7568e6a7d" DataType="IndividualFields" DisplayName="Write Row" HasHeaders="True" sap:VirtualizedContainerService.HintSize="388,592" sap2010:WorkflowViewState.IdRef="WriteRowConnections_2" ItemSelectionMode="Browse" Range="Sheet1" RowPosition="0" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False" WriteMode="Append">
-                                                <uga:WriteRowConnections.AllFields>
-                                                  <x:Array Type="ugsc:IRangeField">
-                                                    <ugsmc:RangeColumn DisplayName="Execution Date" Guid="7bc4075e-359f-4595-bed3-35d57d889f61" Name="Execution Date">
-                                                      <ugsmc:RangeColumn.Sample>
-                                                        <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
-                                                      </ugsmc:RangeColumn.Sample>
-                                                    </ugsmc:RangeColumn>
-                                                    <ugsmc:RangeColumn DisplayName="No. of cases processed" Guid="1a5ffed5-e8e5-41d7-a667-0375b7ca7f76" Name="No. of cases processed">
-                                                      <ugsmc:RangeColumn.Sample>
-                                                        <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
-                                                      </ugsmc:RangeColumn.Sample>
-                                                    </ugsmc:RangeColumn>
-                                                    <ugsmc:RangeColumn DisplayName="No. of Exceptions" Guid="d03213b2-5ac9-4b95-9289-cb600e0fdea1" Name="No. of Exceptions">
-                                                      <ugsmc:RangeColumn.Sample>
-                                                        <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
-                                                      </ugsmc:RangeColumn.Sample>
-                                                    </ugsmc:RangeColumn>
-                                                    <ugsmc:RangeColumn DisplayName="Reference report" Guid="a865dca2-8455-4841-b82a-d42dca5ff7db" Name="Reference report">
-                                                      <ugsmc:RangeColumn.Sample>
-                                                        <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
-                                                      </ugsmc:RangeColumn.Sample>
-                                                    </ugsmc:RangeColumn>
-                                                  </x:Array>
-                                                </uga:WriteRowConnections.AllFields>
-                                                <uga:WriteRowConnections.FileIdBackup>
-                                                  <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="Browse">
-                                                    <usau:BackupSlot.BackupValues>
-                                                      <scg:List x:TypeArguments="x:Object" x:Key="UrlOrId" Capacity="1">
-                                                        <InArgument x:TypeArguments="x:String">[Config("GDriveMasterReport").ToString]</InArgument>
-                                                      </scg:List>
-                                                      <scg:List x:TypeArguments="x:Object" x:Key="UseExisting" Capacity="1">
-                                                        <InArgument x:TypeArguments="ugdm:GDriveRemoteItem">[Config("GDriveMasterReport")]</InArgument>
-                                                      </scg:List>
-                                                    </usau:BackupSlot.BackupValues>
-                                                  </usau:BackupSlot>
-                                                </uga:WriteRowConnections.FileIdBackup>
-                                                <uga:WriteRowConnections.InputDataTypeBackup>
-                                                  <usau:BackupSlot x:TypeArguments="ugase:InputDataType" StoredValue="IndividualFields">
-                                                    <usau:BackupSlot.BackupValues>
-                                                      <scg:List x:TypeArguments="x:Object" x:Key="DataRow" Capacity="1">
-                                                        <x:Null />
-                                                      </scg:List>
-                                                    </usau:BackupSlot.BackupValues>
-                                                  </usau:BackupSlot>
-                                                </uga:WriteRowConnections.InputDataTypeBackup>
-                                                <uga:WriteRowConnections.RangeWriteModeBackup>
-                                                  <usau:BackupSlot x:TypeArguments="ugase:RangeWriteMode" StoredValue="Append">
-                                                    <usau:BackupSlot.BackupValues>
-                                                      <scg:Dictionary x:TypeArguments="ugase:RangeWriteMode, scg:List(x:Object)" />
-                                                    </usau:BackupSlot.BackupValues>
-                                                  </usau:BackupSlot>
-                                                </uga:WriteRowConnections.RangeWriteModeBackup>
-                                                <uga:WriteRowConnections.State>
-                                                  <uga:ActivityState>
-                                                    <uga:ActivityState.SelectedFields>
-                                                      <scg:List x:TypeArguments="uga:DynamicField" Capacity="4">
-                                                        <uga:DynamicField Id="7bc4075e-359f-4595-bed3-35d57d889f61" Name="dynamicField_AddRangeProperty_20">
-                                                          <uga:DynamicField.ArgumentValue>
-                                                            <InArgument x:TypeArguments="x:Object">[TransactionID]</InArgument>
-                                                          </uga:DynamicField.ArgumentValue>
-                                                        </uga:DynamicField>
-                                                        <uga:DynamicField Id="1a5ffed5-e8e5-41d7-a667-0375b7ca7f76" Name="dynamicField_AddRangeProperty_21">
-                                                          <uga:DynamicField.ArgumentValue>
-                                                            <InArgument x:TypeArguments="x:Object">[TotalCompletedCases]</InArgument>
-                                                          </uga:DynamicField.ArgumentValue>
-                                                        </uga:DynamicField>
-                                                        <uga:DynamicField Id="d03213b2-5ac9-4b95-9289-cb600e0fdea1" Name="dynamicField_AddRangeProperty_22">
-                                                          <uga:DynamicField.ArgumentValue>
-                                                            <InArgument x:TypeArguments="x:Object">[TotalExceptionCases]</InArgument>
-                                                          </uga:DynamicField.ArgumentValue>
-                                                        </uga:DynamicField>
-                                                        <uga:DynamicField Id="a865dca2-8455-4841-b82a-d42dca5ff7db" Name="dynamicField_AddRangeProperty_23">
-                                                          <uga:DynamicField.ArgumentValue>
-                                                            <InArgument x:TypeArguments="x:Object">[CurrReportFilePath.Uri]</InArgument>
-                                                          </uga:DynamicField.ArgumentValue>
-                                                        </uga:DynamicField>
-                                                      </scg:List>
-                                                    </uga:ActivityState.SelectedFields>
-                                                  </uga:ActivityState>
-                                                </uga:WriteRowConnections.State>
-                                                <sap:WorkflowViewStateService.ViewState>
-                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                  </scg:Dictionary>
-                                                </sap:WorkflowViewStateService.ViewState>
-                                              </uga:WriteRowConnections>
-                                            </Sequence>
-                                          </ui:CommentOut.Body>
-                                        </ui:CommentOut>
+                                        <uga:WriteRowConnections ArrayRow="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DataRow="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="13_Legal_DropList_MasterReport" BrowserItemId="1-ITESKpYf0SvLQBAhf7nzoe4VQuSVeqarabQo1MsvXc" ConnectionId="37abbd01-4f4c-45fb-8efd-72e7568e6a7d" DataType="IndividualFields" DisplayName="Write Row" HasHeaders="True" sap:VirtualizedContainerService.HintSize="388,592" sap2010:WorkflowViewState.IdRef="WriteRowConnections_3" ItemSelectionMode="Browse" Range="Sheet1" RowPosition="0" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False" WriteMode="Append">
+                                          <uga:WriteRowConnections.AllFields>
+                                            <x:Array Type="ugsc:IRangeField">
+                                              <ugsmc:RangeColumn DisplayName="Execution Date" Guid="7bc4075e-359f-4595-bed3-35d57d889f61" Name="Execution Date">
+                                                <ugsmc:RangeColumn.Sample>
+                                                  <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
+                                                </ugsmc:RangeColumn.Sample>
+                                              </ugsmc:RangeColumn>
+                                              <ugsmc:RangeColumn DisplayName="No. of cases processed" Guid="1a5ffed5-e8e5-41d7-a667-0375b7ca7f76" Name="No. of cases processed">
+                                                <ugsmc:RangeColumn.Sample>
+                                                  <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
+                                                </ugsmc:RangeColumn.Sample>
+                                              </ugsmc:RangeColumn>
+                                              <ugsmc:RangeColumn DisplayName="No. of Exceptions" Guid="d03213b2-5ac9-4b95-9289-cb600e0fdea1" Name="No. of Exceptions">
+                                                <ugsmc:RangeColumn.Sample>
+                                                  <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
+                                                </ugsmc:RangeColumn.Sample>
+                                              </ugsmc:RangeColumn>
+                                              <ugsmc:RangeColumn DisplayName="Reference report" Guid="a865dca2-8455-4841-b82a-d42dca5ff7db" Name="Reference report">
+                                                <ugsmc:RangeColumn.Sample>
+                                                  <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
+                                                </ugsmc:RangeColumn.Sample>
+                                              </ugsmc:RangeColumn>
+                                            </x:Array>
+                                          </uga:WriteRowConnections.AllFields>
+                                          <uga:WriteRowConnections.FileIdBackup>
+                                            <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="Browse">
+                                              <usau:BackupSlot.BackupValues>
+                                                <scg:List x:TypeArguments="x:Object" x:Key="UrlOrId" Capacity="1">
+                                                  <InArgument x:TypeArguments="x:String">[Config("GDriveMasterReport").ToString]</InArgument>
+                                                </scg:List>
+                                                <scg:List x:TypeArguments="x:Object" x:Key="UseExisting" Capacity="1">
+                                                  <InArgument x:TypeArguments="ugdm:GDriveRemoteItem">[Config("GDriveMasterReport")]</InArgument>
+                                                </scg:List>
+                                              </usau:BackupSlot.BackupValues>
+                                            </usau:BackupSlot>
+                                          </uga:WriteRowConnections.FileIdBackup>
+                                          <uga:WriteRowConnections.InputDataTypeBackup>
+                                            <usau:BackupSlot x:TypeArguments="ugase:InputDataType" StoredValue="IndividualFields">
+                                              <usau:BackupSlot.BackupValues>
+                                                <scg:List x:TypeArguments="x:Object" x:Key="DataRow" Capacity="1">
+                                                  <x:Null />
+                                                </scg:List>
+                                              </usau:BackupSlot.BackupValues>
+                                            </usau:BackupSlot>
+                                          </uga:WriteRowConnections.InputDataTypeBackup>
+                                          <uga:WriteRowConnections.RangeWriteModeBackup>
+                                            <usau:BackupSlot x:TypeArguments="ugase:RangeWriteMode" StoredValue="Append">
+                                              <usau:BackupSlot.BackupValues>
+                                                <scg:Dictionary x:TypeArguments="ugase:RangeWriteMode, scg:List(x:Object)" />
+                                              </usau:BackupSlot.BackupValues>
+                                            </usau:BackupSlot>
+                                          </uga:WriteRowConnections.RangeWriteModeBackup>
+                                          <uga:WriteRowConnections.State>
+                                            <uga:ActivityState>
+                                              <uga:ActivityState.SelectedFields>
+                                                <scg:List x:TypeArguments="uga:DynamicField" Capacity="4">
+                                                  <uga:DynamicField Id="7bc4075e-359f-4595-bed3-35d57d889f61" Name="dynamicField_AddRangeProperty_20">
+                                                    <uga:DynamicField.ArgumentValue>
+                                                      <InArgument x:TypeArguments="x:Object">[TransactionID]</InArgument>
+                                                    </uga:DynamicField.ArgumentValue>
+                                                  </uga:DynamicField>
+                                                  <uga:DynamicField Id="1a5ffed5-e8e5-41d7-a667-0375b7ca7f76" Name="dynamicField_AddRangeProperty_21">
+                                                    <uga:DynamicField.ArgumentValue>
+                                                      <InArgument x:TypeArguments="x:Object">[TotalCompletedCases]</InArgument>
+                                                    </uga:DynamicField.ArgumentValue>
+                                                  </uga:DynamicField>
+                                                  <uga:DynamicField Id="d03213b2-5ac9-4b95-9289-cb600e0fdea1" Name="dynamicField_AddRangeProperty_22">
+                                                    <uga:DynamicField.ArgumentValue>
+                                                      <InArgument x:TypeArguments="x:Object">[TotalExceptionCases]</InArgument>
+                                                    </uga:DynamicField.ArgumentValue>
+                                                  </uga:DynamicField>
+                                                  <uga:DynamicField Id="a865dca2-8455-4841-b82a-d42dca5ff7db" Name="dynamicField_AddRangeProperty_23">
+                                                    <uga:DynamicField.ArgumentValue>
+                                                      <InArgument x:TypeArguments="x:Object">[CurrReportFilePath.Uri]</InArgument>
+                                                    </uga:DynamicField.ArgumentValue>
+                                                  </uga:DynamicField>
+                                                </scg:List>
+                                              </uga:ActivityState.SelectedFields>
+                                            </uga:ActivityState>
+                                          </uga:WriteRowConnections.State>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </uga:WriteRowConnections>
                                       </Sequence>
                                     </Sequence>
                                   </TryCatch.Try>
                                   <TryCatch.Catches>
-                                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="614,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="516,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1181,7 +1182,7 @@
                     </State>
                   </Transition.To>
                 </Transition>
-                <Transition sap2010:Annotation.AnnotationText="Business Rule Exception" DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="448.8,537.6" sap2010:WorkflowViewState.IdRef="Transition_1">
+                <Transition sap2010:Annotation.AnnotationText="Business Rule Exception" DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="450,539" sap2010:WorkflowViewState.IdRef="Transition_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:PointCollection x:Key="ConnectorLocation">361.383333333333,628.666666666667 361.383333333333,648 580.5,648 580.5,246.233333333333 475.33333333333303,246.233333333333</av:PointCollection>
@@ -1196,7 +1197,7 @@
                   </Transition.To>
                   <Transition.Condition>[BusinessException IsNot Nothing]</Transition.Condition>
                 </Transition>
-                <Transition sap2010:Annotation.AnnotationText="There is no need for any action in case of successful transaction.&#xA;The process should simply go to next transaction." DisplayName="Success" sap:VirtualizedContainerService.HintSize="452,553.6" sap2010:WorkflowViewState.IdRef="Transition_5">
+                <Transition sap2010:Annotation.AnnotationText="There is no need for any action in case of successful transaction.&#xA;The process should simply go to next transaction." DisplayName="Success" sap:VirtualizedContainerService.HintSize="450,548" sap2010:WorkflowViewState.IdRef="Transition_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:PointCollection x:Key="ConnectorLocation">407.58333333333303,628.666666666667 407.58333333333303,650 511.5,650 511.5,291.433333333333 475.33333333333303,291.433333333333</av:PointCollection>
@@ -1209,7 +1210,9 @@
                   <Transition.To>
                     <x:Reference>__ReferenceID0</x:Reference>
                   </Transition.To>
-                  <Transition.Condition>[SystemException Is Nothing And BusinessException is Nothing]</Transition.Condition>
+                  <Transition.Condition>
+                    <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemException Is Nothing And BusinessException is Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                  </Transition.Condition>
                 </Transition>
               </State.Transitions>
               <State.Variables>
