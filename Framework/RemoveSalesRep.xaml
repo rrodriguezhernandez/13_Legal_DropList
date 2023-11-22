@@ -6,7 +6,7 @@
     <x:Property Name="out_BizExcpt" Type="OutArgument(x:Boolean)" />
     <x:Property Name="out_CurrentAsignee" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1234,6218</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,6220</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -109,7 +109,7 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1112,6153" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap:VirtualizedContainerService.HintSize="1112,6155" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="CarrierCode" />
       <Variable x:TypeArguments="x:String" Name="CarrierName" />
@@ -166,13 +166,13 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Working on Truck Entry Page" sap:VirtualizedContainerService.HintSize="1050,5762" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Working on Truck Entry Page" sap:VirtualizedContainerService.HintSize="1050,5764" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,5545" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,5547" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -481,7 +481,7 @@
             </If>
             <uix:NCheckState DisplayName="Check App State 'Carrier City, St.'" sap:VirtualizedContainerService.HintSize="954,475" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V3">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,256" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_19">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -503,7 +503,7 @@
               <uix:NCheckState.Target>
                 <uix:TargetAnchorable BrowserURL="https://xlr8.arrivelogistics.com/#/truck-entry" CvTextArea="441, 384, 94, 11" CvTextArgument="Carrier Rep Name:" CvType="Text" DesignTimeRectangle="442, 382, 291, 16" DesignTimeScaleFactor="1" FriendlyName="'Carrier Rep Name'" FullSelectorArgument="&lt;webctrl id='carrier-details-tab-cell-rep-name' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='carrier-details-tab-cell-rep-name' tag='DIV' type='' class='carrier-details-tab__carrier-rep-name' aaname='' check:innerText='Carrier Rep Name:' /&gt;" Guid="e64223c9-7fc6-4726-8dce-1f675e67705c" InformativeScreenshot="013746ed39f1f7c82bb288fba9f3dfa9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Truck Entry' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target CvTextArea="441, 363, 81, 11" CvTextArgument="Carrier City, St.:" CvType="Text" DesignTimeRectangle="442, 362, 79, 14" ElementType="Text" FriendlyName="'Carrier City, St.'" FullSelectorArgument="&lt;webctrl parentid='carrier-details-tab-cell-city-st' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='carrier-details-tab-cell-city-st' tag='SPAN' type='' class='carrier-details-tab__subtitle' aaname='Carrier City, St.:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFMAAAASCAYAAAAntuLJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPXSURBVFhH7ZbLK8RRFMfnH7CxUFZWspKVFCkiFCnFwoKihBRFeUUeKxsWFkheC7GQhSIlbDyTSCKP5JG8kySPPI4+p7nTb2SmGY2U5lu3+f3u/d1zvud7zzl3bOKHz+AX04fwi+lD+MX0IX5VzI+PD5mamtLBs69xcHAgAwMD8vDwYJ/5WziJeXJyInl5eRIQECDh4eHS19cnr6+v9lXv8fLyIpWVlTp4/gnwPzw8rHzglZubqyKC8fFxiY+Pl+PjY33/CbBPnMZ+VlaWrK+v21e9g0PMq6srycjIkOzsbM2krq4uCQ0N1UD+EviHB3zgBT94wteKnZ0diYiIkPn5efuMZ+BAQkJCpLu7W7a3tyU/P18SExPl7OxMBgcHJTk5WW5ubuxfu4dDTIhCemNjQ9+fnp6krq5OGhoa5Pb2VhobG9Upp1dQUKDBmAAqKiokLi5OlpeX1XlxcbHExMTI7OysFBYW6nh8fJTz83Pdi43Y2FhZWlpSotY9VjHu7+8lJydHampq5O3tTedWV1clJSVF1tbWNFj8T05O6q/NZtPR2dkpQUFBagu/+C8tLZXn52e1YYWxgZDg4uJC5ubmpKenx2HvO0EnJiYkMjJStra27DMWMY1RBHIFiOEUIcgUIyZCtra26hqOmWtqapLNzU2HmHd3dyo6Yu7v70t7e7uKsre357SHdwMjdHNzs33GGYYzAa2srGipIuzl5aVmb1tbmxwdHUl0dLSMjo7adzkD8SjtwMBAKSkpkcXFRXl/f9dYydaEhARtK8xZwVxHR4eTyB6Jae1b5rQI0IjJXvA1eJMVDJwjutnPYK/J5u8E81RMeBguZCOXHYebmZkp/f39KiaiugIZa1oIVdPS0qIxYx//X7PSFTwqc0qLNfrL9fW1I0BvxNzd3dWgyGhAwJy2O8E8LfOvYprveI+KinLabwWX4tDQkA6e4US2GZs/FtNcQDTg6elp/ctBj8QgxIKDgzU7IYszb8WkzOlbBLewsCBjY2NSXl4up6enLsUE5gKCD7zgl56erqX8nZjM8VfJHAQVQKKQffRoksEKeiNxjoyMaPZWV1c7Mhlb8OV2J1Oxw3ccjNsyB/Qr+gepTkn39vYqCQxRNvQVAklKStLTpkd6KibPXEBFRUVqh747MzPjNjMBvsnmsLAw5cVfI9NXrWIiYFlZmX6DaIB95mY2fqwXHCA+4jQtjB4JL7IUu1yKqampeni1tbXa8/Hl9gL6T0CIw8NDzcz6+nrNJCoPUaiy38K/FNNURFpamiOLue2rqqp07bfwL8X8K/jF9CH8YvoMIp9j2gy4g7ZK7gAAAABJRU5ErkJggg==" SearchSteps="Selector" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
