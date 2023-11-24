@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,6058</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1874,6058</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -127,11 +127,7 @@
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ArriveNow_Username" />
       <Variable x:TypeArguments="ss:SecureString" Name="ArriveNow_Password" />
-      <Variable x:TypeArguments="s:String[]" Name="ArrayHeaders">
-        <Variable.Default>
-          <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;Execution DateTime&quot;, &quot;CarrierCode&quot;, &quot;CarrierName&quot;, &quot;SalesRep&quot;, &quot;CurrentSalesRep&quot;, &quot;Status&quot;, &quot;Remarks&quot;}" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="s:String[]" Default="[{&quot;Execution DateTime&quot;, &quot;CarrierCode&quot;, &quot;CarrierName&quot;, &quot;SalesRep&quot;, &quot;CurrentSalesRep&quot;, &quot;Status&quot;, &quot;Remarks&quot;}]" Name="ArrayHeaders" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -140,7 +136,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="1158,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening Chrome browser and creating execution report&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="1158,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Reset Exception variable" sap:VirtualizedContainerService.HintSize="1158,82" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Boolean">[out_ArrivePortalException]</OutArgument>
       </Assign.To>
@@ -156,7 +152,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uga:CreateSpreadsheetConnections BrowserParentFolderFriendlyName="{x:Null}" BrowserParentFolderId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ParentFolderExisting="{x:Null}" AuthScopesInvalid="False" ConflictResolution="[UiPath.GSuite.Activities.Drive.Enums.ConflictBehavior.Replace]" ConnectionId="66ad403e-5a17-4e6f-87b2-6c139e9ea210" DisplayName="Create Spreadsheet" FirstSheetName="ExecutionReport" sap:VirtualizedContainerService.HintSize="388,203" sap2010:WorkflowViewState.IdRef="CreateSpreadsheetConnections_4" ManualEntryParentFolderId="[in_Config(&quot;GDriveReportFolder&quot;).ToString]" NewSpreadsheet="[out_CurrReportFilepath]" ParentFolderInputMode="UrlOrId" SpreadsheetName="[&quot;CarrierDropList Process - Execution Report for &quot; + DateTime.Now.ToString(&quot;M/d/yyyy&quot;)]" UseConnectionService="True">
+      <uga:CreateSpreadsheetConnections BrowserParentFolderFriendlyName="{x:Null}" BrowserParentFolderId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ParentFolderExisting="{x:Null}" AuthScopesInvalid="False" ConflictResolution="[UiPath.GSuite.Activities.Drive.Enums.ConflictBehavior.AddSeparate]" ConnectionId="66ad403e-5a17-4e6f-87b2-6c139e9ea210" DisplayName="Create Report Spreadsheet" FirstSheetName="ExecutionReport" sap:VirtualizedContainerService.HintSize="388,203" sap2010:WorkflowViewState.IdRef="CreateSpreadsheetConnections_4" ManualEntryParentFolderId="[in_Config(&quot;GDriveReportFolder&quot;).ToString]" NewSpreadsheet="[out_CurrReportFilepath]" ParentFolderInputMode="UrlOrId" SpreadsheetName="[&quot;CarrierDropList Process - Execution Report for &quot; + DateTime.Now.ToString(&quot;M/d/yyyy&quot;)]" UseConnectionService="True">
         <uga:CreateSpreadsheetConnections.FolderIdBackup>
           <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="UrlOrId">
             <usau:BackupSlot.BackupValues>
@@ -219,7 +215,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Loggin into Arrive Portal" sap:VirtualizedContainerService.HintSize="1096,3100" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Loggin into Arrive Portal" sap:VirtualizedContainerService.HintSize="1096,3100" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -253,7 +249,7 @@
                         </uix:TargetAnchorable>
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Sign out'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Sign out" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://portal.arrivelogistics.com/app/UserHome?iss=https%3A%2F%2Fportal.arrivelogistics.com&amp;session_hint=AUTHENTICATED" CvTextArea="2324, 416, 55, 16" CvTextArgument="Sign out" CvType="Text" DesignTimeRectangle="2301, 393, 218, 36" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Sign out'" FullSelectorArgument="&lt;webctrl aaname='Sign out' class='topbar--item' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Sign out' class='topbar--item' tag='A' type='' check:innerText='Sign out' /&gt;" Guid="9bd9df66-968f-492b-821c-5b02ce00ac91" InformativeScreenshot="b25f0ae8e4ea846b667ee3db3a2bfcd4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='My Apps Dashboard | Arrive Logistics' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -322,7 +318,7 @@
                     </uix:TargetAnchorable>
                   </uix:NTypeInto.Target>
                 </uix:NTypeInto>
-                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Sign in'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V3">
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Sign in" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V3">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable BrowserURL="https://portal.arrivelogistics.com/oauth2/v1/authorize?client_id=okta.2b1959c8-bcc0-56eb-a589-cfcfb7422f26&amp;code_challenge=65Fz0HCxHOVccdu8lHFtCI4LghKItwz7i6cg7iydHoo&amp;code_challenge_method=S256&amp;nonce=uJ3jtAT7510ibMMTqBnXk5Stzjq4x4VGjFCJZHf24jp3VhAUjfJYaTXIsKTuhqbn&amp;redirect_uri=https%3A%2F%2Fportal.arrivelogistics.com%2Fenduser%2Fcallback&amp;response_type=code&amp;state=WPUjEY2NkGnXjUrjGXj7VPDDBba1kDGKH4LChSsAYYlv5ocGRqqZ17duktuJ6dk9&amp;scope=openid%20profile%20email%20okta.users.read.self%20okta.users.manage.self%20okta.internal.enduser.read%20okta.internal.enduser.manage%20okta.enduser.dashboard.read%20okta.enduser.dashboard.manage" CvElementArea="1128, 624, 318, 54" CvTextArea="1265, 643, 44, 16" CvTextArgument="Sign in" CvType="Button" DesignTimeRectangle="1130, 614, 316, 50" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Sign in'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' class='button button-primary' aaname='Sign in' check:text='Sign in' /&gt;" Guid="5d894476-bc50-45d2-b6c3-414936a931de" InformativeScreenshot="1e05020485657ac56e7e1819db49918c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Arrive Logistics - Sign In' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                       <uix:TargetAnchorable.Anchors>
@@ -398,7 +394,7 @@
                   </uix:NClick.Target>
                 </uix:NClick>
               </Sequence>
-              <uix:NNavigateBrowser Action="CloseTab" DisplayName="Close Arrive Portal tab" sap:VirtualizedContainerService.HintSize="1000,82" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" />
+              <uix:NNavigateBrowser Action="CloseTab" DisplayName="Close Arrive Portal tab" sap:VirtualizedContainerService.HintSize="1000,82" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_3" Version="V3" />
             </Sequence>
           </ActivityAction>
         </uix:NApplicationCard.Body>
@@ -412,7 +408,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </uix:NApplicationCard>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Open Truck Entry page" sap:VirtualizedContainerService.HintSize="1096,1641" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Open Truck Entry page" sap:VirtualizedContainerService.HintSize="1096,1641" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
