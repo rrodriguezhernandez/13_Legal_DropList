@@ -1,5 +1,12 @@
 {
-  "Tags": [],
+  "Tags": [
+    {
+      "Key": "Legal"
+    },
+    {
+      "Key": "CarrierDropList"
+    }
+  ],
   "SeparateRuntimeDependencies": true,
   "IncludeSources": true
 }
