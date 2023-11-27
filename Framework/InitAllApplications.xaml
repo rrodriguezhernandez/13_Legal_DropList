@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,6279</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1256,6279</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -123,7 +123,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1220,6174" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1266,6214" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ArriveNow_Username" />
       <Variable x:TypeArguments="ss:SecureString" Name="ArriveNow_Password" />
@@ -135,8 +135,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="1158,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening Chrome browser and creating execution report&quot;]" />
-    <Assign DisplayName="Reset Exception variable" sap:VirtualizedContainerService.HintSize="1158,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="1204,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening Chrome browser and creating execution report&quot;]" />
+    <Assign DisplayName="Reset Exception variable" sap:VirtualizedContainerService.HintSize="1204,82" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Boolean">[out_ArrivePortalException]</OutArgument>
       </Assign.To>
@@ -144,8 +144,8 @@
         <InArgument x:TypeArguments="x:Boolean">False</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;ArriveNow_CredentialName&quot;).ToString]" CacheStrategy="None" DisplayName="Get ArriveNow Credentials" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="1158,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[ArriveNow_Password]" Username="[ArriveNow_Username]" />
-    <Sequence DisplayName="Create execution report file" sap:VirtualizedContainerService.HintSize="1158,614" sap2010:WorkflowViewState.IdRef="Sequence_32">
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;ArriveNow_CredentialName&quot;).ToString]" CacheStrategy="None" DisplayName="Get ArriveNow Credentials" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="1204,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[ArriveNow_Password]" Username="[ArriveNow_Username]" />
+    <Sequence DisplayName="Create execution report file" sap:VirtualizedContainerService.HintSize="1204,614" sap2010:WorkflowViewState.IdRef="Sequence_32">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -209,14 +209,14 @@
         </sap:WorkflowViewStateService.ViewState>
       </ugas:GoogleSheetsApplicationScope>
     </Sequence>
-    <Sequence DisplayName="Open Arrive portal" sap:VirtualizedContainerService.HintSize="1158,4892" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <Sequence DisplayName="Open Arrive portal" sap:VirtualizedContainerService.HintSize="1204,4932" sap2010:WorkflowViewState.IdRef="Sequence_11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Loggin into Arrive Portal" sap:VirtualizedContainerService.HintSize="1096,3100" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Loggin into Arrive Portal" sap:VirtualizedContainerService.HintSize="1142,3100" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -331,7 +331,7 @@
                   </uix:NClick.Target>
                 </uix:NClick>
               </Sequence>
-              <uix:NCheckState DisplayName="Check if login was succesful" sap:VirtualizedContainerService.HintSize="1000,597" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V3">
+              <uix:NCheckState DisplayName="Check if login was succesful" sap:VirtualizedContainerService.HintSize="1000,597" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="7aa6c8e2-3267-4559-ab77-ef2742355273" Timeout="10" Version="V3">
                 <uix:NCheckState.IfExists>
                   <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_15">
                     <sap:WorkflowViewStateService.ViewState>
@@ -409,19 +409,19 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </uix:NApplicationCard>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Accelerate" sap:VirtualizedContainerService.HintSize="1096,1641" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Accelerate" sap:VirtualizedContainerService.HintSize="1142,1681" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1062,1424" sap2010:WorkflowViewState.IdRef="Sequence_26">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1108,1464" sap2010:WorkflowViewState.IdRef="Sequence_26">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NCheckState DisplayName="Check if ArriveNow window is open" sap:VirtualizedContainerService.HintSize="1000,672" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Timeout="10" Version="V3">
+              <uix:NCheckState DisplayName="Check if ArriveNow window is open" sap:VirtualizedContainerService.HintSize="1046,672" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Timeout="10" Version="V3">
                 <uix:NCheckState.IfExists>
                   <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,455" sap2010:WorkflowViewState.IdRef="Sequence_24">
                     <sap:WorkflowViewStateService.ViewState>
@@ -456,7 +456,7 @@
                 <uix:NCheckState.Target>
                   <uix:TargetAnchorable BrowserURL="https://xlr8.arrivelogistics.com/#/" CvTextArea="1482, 136, 51, 14" CvTextArgument="Search" CvType="Text" DesignTimeRectangle="1446, 117, 286, 52" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;main&amp;gt;nav&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='full-page-container' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='full-page-container' tag='DIV' class='arrive_TextEntry__inputWrapper arrive_TextEntry__lg universal-search-input-wrapper' aaname='' /&gt;" Guid="bc7bd370-e744-4e4f-ac0d-9d7c2a2df3cf" InformativeScreenshot="c70ead32aacfc0d8c43c2b8e4e679d29.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Accelerate' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                         <uix:Target CvTextArea="1423, 131, 14, 23" CvTextArgument="$" CvType="Text" DesignTimeRectangle="1414, 117, 32, 52" ElementType="Button" FriendlyName="'BUTTON'" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='secondary' class='md-btn md-pointer--hover md-text md-inline-block' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAA4CAYAAACVFFp4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHrSURBVGhD7ZZbSwJBFID9I4WvvkUPvVW2moqFUXTBoqB7lt0zsIhKMitwszXvmV3pR1W/5eQM7NbCaU81UkvMwsfCnDmcD+bMxQE2+xzPL69gJxwtrW3AaO9U/hSXy8WRQp8hhSikEIUUopBCFFKIQgpR/F+hDrcHBkfGDDqVbnQeRcOEvL4gVG+fDPzBXnQexf8TYksTXd2Ec61kEspcliESXUdzrBASUroDkM7kDYni1R2cpjX+18c2YnE09zOEhNa24rxooXwDw+FxY5w1+PTcoiEV6h805VkhJHSUSvOC+4kUGs+Vajw+u7CMxjGEhOK7h7ygmi1Cl8eHzvkuQkIDQ2Go1B65lJarwMLiKvgCP9tdOkJCjInJ2frSXHMpnVM1CyvrMVC8fjTHCmEhhlvxwuTMvNFTOtlCFYZH35v9KzRE6CPsgJyLREHVilyKLWmo75d2mRXu+oGp5a+4VHwvgc7BEBJipzEryPoFi+8dJHn8+ExF4xhCQpvbu7xgqfoAYxNTpligJ2Sc2BuxHVPMCiGhLo/fdIfly7eQOstA8iQN5eo9H1MvCuCpXzFYPoaQEIPtsKUV/HJll+5330XCQjryPURhuydso5BCFFKIQgpRSCEKKUQhhSikEIV9hZqanWAnbCbkhDePQ2AsshkrxwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
@@ -469,15 +469,23 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NCheckState>
-              <uix:NCheckState DisplayName="Check if Truck Entry page was opened correctly" sap:VirtualizedContainerService.HintSize="1000,597" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Timeout="5" Version="V3">
+              <uix:NCheckState DisplayName="Check if Truck Entry page was opened correctly" sap:VirtualizedContainerService.HintSize="1046,637" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Timeout="5" Version="V3">
                 <uix:NCheckState.IfExists>
-                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,380" sap2010:WorkflowViewState.IdRef="Sequence_19">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Succesfully opened Truck Entry page&quot;]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Succesfully opened Truck Entry page&quot;]" />
+                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[out_ArrivePortalException]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
                   </Sequence>
                 </uix:NCheckState.IfExists>
                 <uix:NCheckState.IfNotExists>
