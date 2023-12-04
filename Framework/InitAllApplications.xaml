@@ -1,13 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugas="clr-namespace:UiPath.GSuite.Activities.Sheets;assembly=UiPath.GSuite.Activities" xmlns:ugdm="clr-namespace:UiPath.GSuite.Drive.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="out_CurrReportFilepath" Type="OutArgument(ugdm:GDriveRemoteItem)" />
     <x:Property Name="out_ArrivePortalException" Type="OutArgument(x:Boolean)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1256,6279</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1256,5633</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -123,11 +122,10 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1266,6214" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1266,5528" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ArriveNow_Username" />
       <Variable x:TypeArguments="ss:SecureString" Name="ArriveNow_Password" />
-      <Variable x:TypeArguments="s:String[]" Default="[{&quot;Execution DateTime&quot;, &quot;CarrierCode&quot;, &quot;CarrierName&quot;, &quot;SalesRep&quot;, &quot;CurrentSalesRep&quot;, &quot;Status&quot;, &quot;Remarks&quot;}]" Name="ArrayHeaders" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -145,84 +143,20 @@
       </Assign.Value>
     </Assign>
     <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;ArriveNow_CredentialName&quot;).ToString]" CacheStrategy="None" DisplayName="Get ArriveNow Credentials" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="1204,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[ArriveNow_Password]" Username="[ArriveNow_Username]" />
-    <Sequence DisplayName="Create execution report file" sap:VirtualizedContainerService.HintSize="1204,614" sap2010:WorkflowViewState.IdRef="Sequence_32">
+    <Sequence DisplayName="Open Arrive portal" sap:VirtualizedContainerService.HintSize="1204,4900" sap2010:WorkflowViewState.IdRef="Sequence_11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uga:CreateSpreadsheetConnections BrowserParentFolderFriendlyName="{x:Null}" BrowserParentFolderId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ParentFolderExisting="{x:Null}" AuthScopesInvalid="False" ConflictResolution="[UiPath.GSuite.Activities.Drive.Enums.ConflictBehavior.AddSeparate]" ConnectionId="66ad403e-5a17-4e6f-87b2-6c139e9ea210" DisplayName="Create Report Spreadsheet" FirstSheetName="ExecutionReport" sap:VirtualizedContainerService.HintSize="388,203" sap2010:WorkflowViewState.IdRef="CreateSpreadsheetConnections_4" ManualEntryParentFolderId="[in_Config(&quot;GDriveReportFolder&quot;).ToString]" NewSpreadsheet="[out_CurrReportFilepath]" ParentFolderInputMode="UrlOrId" SpreadsheetName="[&quot;CarrierDropList Process - Execution Report for &quot; + DateTime.Now.ToString(&quot;M/d/yyyy&quot;)]" UseConnectionService="True">
-        <uga:CreateSpreadsheetConnections.FolderIdBackup>
-          <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="UrlOrId">
-            <usau:BackupSlot.BackupValues>
-              <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="2">
-                <x:Null />
-                <x:Null />
-              </scg:List>
-              <scg:List x:TypeArguments="x:Object" x:Key="UseExisting" Capacity="1">
-                <InArgument x:TypeArguments="ugdm:GDriveRemoteItem">[GDriveReportFolder.ToString]</InArgument>
-              </scg:List>
-            </usau:BackupSlot.BackupValues>
-          </usau:BackupSlot>
-        </uga:CreateSpreadsheetConnections.FolderIdBackup>
-      </uga:CreateSpreadsheetConnections>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Created report file succesfully&quot;]" />
-      <ugas:GoogleSheetsApplicationScope ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" FileId="{x:Null}" Filename="{x:Null}" ParentFolderId="{x:Null}" ParentFolderPath="{x:Null}" SpreadsheetName="{x:Null}" Timeout="{x:Null}" Account="svc_rpabot_dev02@arrivelogistics.com" Action="UseExisting" Connector="uipath-google-sheets" DisplayName="Adding Column names" sap:VirtualizedContainerService.HintSize="388,79" sap2010:WorkflowViewState.IdRef="GoogleSheetsApplicationScope_3" Mode="EnterId" SpreadsheetId="[out_CurrReportFilepath.ID]" UseConnectionService="False" UserEmail="svc_rpabot_dev02@arrivelogistics.com">
-        <ugas:GoogleSheetsApplicationScope.Body>
-          <ActivityAction x:TypeArguments="ugas:IGoogleSheetTarget">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="ugas:IGoogleSheetTarget" Name="Spreadsheet" />
-            </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_34">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="A1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_1" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(0)]" />
-              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="B1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_2" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(1)]" />
-              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="C1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_3" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(2)]" />
-              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="D1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_4" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(3)]" />
-              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="E1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_5" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(4)]" />
-              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="F1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_6" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(5)]" />
-              <uga:WriteCell ContinueOnError="{x:Null}" Request="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" Cell="G1" DisplayName="Write Cell" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="388,197" sap2010:WorkflowViewState.IdRef="WriteCell_7" IsInsideBatchUpdateScope="False" SheetName="ExecutionReport" Value="[ArrayHeaders(6)]" />
-            </Sequence>
-          </ActivityAction>
-        </ugas:GoogleSheetsApplicationScope.Body>
-        <ugas:GoogleSheetsApplicationScope.CredentialID>
-          <InArgument x:TypeArguments="x:String">
-            <Literal x:TypeArguments="x:String" Value="" />
-          </InArgument>
-        </ugas:GoogleSheetsApplicationScope.CredentialID>
-        <ugas:GoogleSheetsApplicationScope.CredentialSecret>
-          <InArgument x:TypeArguments="x:String">
-            <Literal x:TypeArguments="x:String" Value="" />
-          </InArgument>
-        </ugas:GoogleSheetsApplicationScope.CredentialSecret>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ugas:GoogleSheetsApplicationScope>
-    </Sequence>
-    <Sequence DisplayName="Open Arrive portal" sap:VirtualizedContainerService.HintSize="1204,4932" sap2010:WorkflowViewState.IdRef="Sequence_11">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Loggin into Arrive Portal" sap:VirtualizedContainerService.HintSize="1142,3100" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Loggin into Arrive Portal" sap:VirtualizedContainerService.HintSize="1142,3108" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1062,2883" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1062,2891" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -331,6 +265,7 @@
                   </uix:NClick.Target>
                 </uix:NClick>
               </Sequence>
+              <Delay Duration="00:00:07" sap:VirtualizedContainerService.HintSize="1000,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
               <uix:NCheckState DisplayName="Check if login was succesful" sap:VirtualizedContainerService.HintSize="1000,597" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="7aa6c8e2-3267-4559-ab77-ef2742355273" Timeout="10" Version="V3">
                 <uix:NCheckState.IfExists>
                   <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_15">
@@ -395,7 +330,6 @@
                   </uix:NClick.Target>
                 </uix:NClick>
               </Sequence>
-              <uix:NNavigateBrowser Action="CloseTab" DisplayName="Close Arrive Portal tab" sap:VirtualizedContainerService.HintSize="1000,82" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_3" Version="V3" />
             </Sequence>
           </ActivityAction>
         </uix:NApplicationCard.Body>
@@ -409,13 +343,13 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </uix:NApplicationCard>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Accelerate" sap:VirtualizedContainerService.HintSize="1142,1681" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Accelerate" sap:VirtualizedContainerService.HintSize="1142,1641" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1108,1464" sap2010:WorkflowViewState.IdRef="Sequence_26">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1108,1424" sap2010:WorkflowViewState.IdRef="Sequence_26">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -432,10 +366,10 @@
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;ArriveNow succesfully opened&quot;]" />
                     <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Truck Entry'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V3">
                       <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://xlr8.arrivelogistics.com/#/" DesignTimeRectangle="938, 423, 32, 32" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG'" FullSelectorArgument="&lt;webctrl idx='2' parentid='home-module' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='home-module' tag='IMG' class='sc-hLBbgP dklMZC' aaname='icon' /&gt;" Guid="cb8084f3-7668-4e48-a138-c7133caed26f" InformativeScreenshot="1fbce0841542879368acdffb0e6ab3e9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Accelerate' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable BrowserURL="https://xlr8.arrivelogistics.com/#/" DesignTimeRectangle="526, 415, 26, 21" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'PATH'" FullSelectorArgument="&lt;webctrl idx='2' parentid='home-module' tag='path' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='home-module' tag='path' class='' aaname='' /&gt;" Guid="d809879e-a643-4596-a862-85abd3c33c9a" InformativeScreenshot="825c182b686178b225e5a500a0a32dca.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Accelerate' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
                             <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                              <uix:Target CvTextArea="580, 508, 89, 19" CvTextArgument="Truck Entry" CvType="Text" DesignTimeRectangle="904, 507, 100, 20" ElementType="Text" FriendlyName="'Truck Entry'" FullSelectorArgument="&lt;webctrl idx='2' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='P' class='' aaname='Truck Entry' check:innerText='Truck Entry' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAYCAYAAAAWPrhgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANtSURBVGhD7Ze9UttAEMfzIjB+DcwDEB4A09g0SeXQAA2hATfBXSpTiUpUciVXciVXcqVUSmVXcmVXdiV3y+7pJJ00Z30EYURGN/ObsVe30t39d/fuvhwcNqCmutQCVZxaoIpTC1RxaoEqzucSSJsDwAasB8mz/5RsgR6msMZlyWozTeJbNv8iUMb411ZP7lcRsgVq9UDVR6AHmHPwcGJLW7Ahg2uJb9m8QSBvNomNN0B9OJf77eDe2hQfwxsoXuL4hPeSMUneIFBZmfKJBeqBRQ9cjNQZTSJYFG6fDeP9ZYv9tQ8G+lKGsrZegKVcwtFOnwvQZlvf9ngavUckp0D+ws/BUKbgkgNrW3DNPpywPkOYcWvY1lO4D30XYOpz9i2y/1b/0i9wdTFDj0F1yDoHrRl9O43yBaKGC+tYE5zsZWTPEqjJ+3krsPUnuH18AZMJvcVv8UnGfI75wtDzi+i9SQoJhI2+bwxB08ZgL0n8LTgK9TmF9o9LUGzqtwEb59b9fs6CJ/RFu+tMwTSeoXv4BDZFmjuGs+A7zRdg+jgvUdBlUL5AFFWx6Mgn0Jm+wP9bsAfHQr8bMJdoXk5wwnGfNv72ssQh+HilTRiTv8j0buH7rTG4aBXFjfrxPjGbOPYG/LJJ4AUYLW5T/Kxy1Hi/NMoXKClEToE0qh/eHxiIfZCTThSpoY8eZUVmJAYZZGNUYwbE6ERl0V9kLD2iLy9r+QRK+iLXE2DxZVIlaYBC6SOZYxrVEojX9Fg/EeZDbQNreieWj7asn0ggUM49qFSBhApwdfjMyptn9xN90ql8BsVgPljWVCxrPDozs+hDBcLSbVDpXuG+ROUt7peHPQh059uDfYTTNlaxAcv3oAswduxB9PzKpHckfRJ8sEAHrRHbx1hjmSTpk8IeBAo2yy1ebsd4OhqCYS3YO2ITFU9xWh+6P5/YkZtljPQUR6CANHsPF6cT2BIEAsn2IORbyxc3r0BHvMy6Fl501R47oaUKFB6to72oCHsR6KB5F96NqHlrvG+gSMlILH4PQjo8Qt0RdGV3Cz7eXS1Y/LwCUSCZLgUcNsyIW7SlC4SisuognOYKUFygmoKc+/srBlB4HypALdC7cQMDfQSGvWL3NUfJf/cRqQV6N/zySHuoa+a4r+2gFqji1AJVnFqgStOAV5Fjzv512an9AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                              <uix:Target CvTextArea="493, 496, 89, 18" CvTextArgument="Truck Entry" CvType="Text" DesignTimeRectangle="488, 493, 100, 24" ElementType="Text" FriendlyName="'Truck Entry'" FullSelectorArgument="&lt;webctrl idx='2' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='P' class='MuiTypography-root MuiTypography-body1 css-1rmrb7v-MuiTypography-root' aaname='Truck Entry' check:innerText='Truck Entry' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAcCAYAAACNr/p2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALcSURBVGhD7Zchc+JAGIbvj4SpwtWAA3NXdZgDU1cwxxlaQ89ATQ9Df0FOcQoUqKBSlSpQoECByilQoMC9t7tZIEkTknCk3c7sM5MZdiHJfvt83+7yCRKhkYIERwoSHClIcKQgwZGCBEcKEpwQgpbQyhdQEgFXuYcFvyMerHF815a8HZJRw3u87GpgxH8mKidV0Eglwalj3nor/kdQCdqZsuetY5eCIiIF+SKCoDnaxY8qiE1EAwOzj8fi5X59X2glj/1pDJXsAapjA9hipjdQzdN7yfMzBdTaQ6z4t56CzB4q6SSuVfvvXIQUZMU0hKk/4CZDPieS+Hz7B5Pdg9lzaP/h2o/FK/bNCx7TXgm1hn5/gdSvF2x4zzHOLCiLb/UOZrbZCidoi4l6BSX/AGOxtbpWU3Rvk7ZAXIKYnEtUu/PjgXpM7O6yJwiLKZ1D0+DP38yhkfcr932H/Cixm90ClK9UFu+gmB3cJAromrwdwJkFvc7UUIJWfVRJgK0Jb++gEmgWswBtgpicKzQH7uz0wGdcblhMLhnWvXcwbJ1RYsdmiCapoqq+5h1bDJ5I0tWf/SvexdmXOMeqRQglyOdeJ1zQU4PIIe/PuzLTjyiCQkx8lNgpVhX9Bss9v0Q8wocTpGR+QDOt5SdUJr6zoEMVLTFpZV9XaQCxC1oZd2Rtd/XTDTTMEkf6a0W6L9GGaw9a9NkBoaL9tdp+vLcgAquifA7X6SyJme+xIYldEFbPqNGJ7E555qwxUHNIkayyb9KTNunL/4Ruug4J+ypxCSIs9BJSQRvumQWxKih34HhlgKBdFSlF130hiF8QYTPr8eMnOV5+KaE1GrPJrpCyt2MaEY/ZRLZRJyetY/sRGxd5nud1GG9YQdhM0S5bY9yPP0gQT9LmIFr1UE4SJIkGW+JOqB6KFBQ37A9rEjVjd9SOhhQUM45j9glIQYIjBQmOFCQ4UpDgSEGCIwUJDfAPBUo6CSNosy4AAAAASUVORK5CYII=" SearchSteps="FuzzySelector" />
                             </scg:List>
                           </uix:TargetAnchorable.Anchors>
                         </uix:TargetAnchorable>
@@ -454,10 +388,10 @@
                   </Sequence>
                 </uix:NCheckState.IfNotExists>
                 <uix:NCheckState.Target>
-                  <uix:TargetAnchorable BrowserURL="https://xlr8.arrivelogistics.com/#/" CvTextArea="1482, 136, 51, 14" CvTextArgument="Search" CvType="Text" DesignTimeRectangle="1446, 117, 286, 52" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;main&amp;gt;nav&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='full-page-container' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='full-page-container' tag='DIV' class='arrive_TextEntry__inputWrapper arrive_TextEntry__lg universal-search-input-wrapper' aaname='' /&gt;" Guid="bc7bd370-e744-4e4f-ac0d-9d7c2a2df3cf" InformativeScreenshot="c70ead32aacfc0d8c43c2b8e4e679d29.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Accelerate' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable BrowserURL="https://xlr8.arrivelogistics.com/#/" CvTextArea="1290, 143, 51, 14" CvTextArgument="Search" CvType="Text" DesignTimeRectangle="1290, 123, 250, 40" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT universal-search'" FullSelectorArgument="&lt;webctrl id='universal-search' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='universal-search' tag='INPUT' type='text' class='arrive_TextEntry__entry arrive_TextEntry__input undefined search-inner-input' aaname='' /&gt;" Guid="518823c2-53c8-4410-9355-5968a76c5b86" InformativeScreenshot="21e0b770cb505b578c5c4229c0574451.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Accelerate' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
                       <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                        <uix:Target CvTextArea="1423, 131, 14, 23" CvTextArgument="$" CvType="Text" DesignTimeRectangle="1414, 117, 32, 52" ElementType="Button" FriendlyName="'BUTTON'" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='secondary' class='md-btn md-pointer--hover md-text md-inline-block' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAA4CAYAAACVFFp4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHrSURBVGhD7ZZbSwJBFID9I4WvvkUPvVW2moqFUXTBoqB7lt0zsIhKMitwszXvmV3pR1W/5eQM7NbCaU81UkvMwsfCnDmcD+bMxQE2+xzPL69gJxwtrW3AaO9U/hSXy8WRQp8hhSikEIUUopBCFFKIQgpR/F+hDrcHBkfGDDqVbnQeRcOEvL4gVG+fDPzBXnQexf8TYksTXd2Ec61kEspcliESXUdzrBASUroDkM7kDYni1R2cpjX+18c2YnE09zOEhNa24rxooXwDw+FxY5w1+PTcoiEV6h805VkhJHSUSvOC+4kUGs+Vajw+u7CMxjGEhOK7h7ygmi1Cl8eHzvkuQkIDQ2Go1B65lJarwMLiKvgCP9tdOkJCjInJ2frSXHMpnVM1CyvrMVC8fjTHCmEhhlvxwuTMvNFTOtlCFYZH35v9KzRE6CPsgJyLREHVilyKLWmo75d2mRXu+oGp5a+4VHwvgc7BEBJipzEryPoFi+8dJHn8+ExF4xhCQpvbu7xgqfoAYxNTpligJ2Sc2BuxHVPMCiGhLo/fdIfly7eQOstA8iQN5eo9H1MvCuCpXzFYPoaQEIPtsKUV/HJll+5330XCQjryPURhuydso5BCFFKIQgpRSCEKKUQhhSikEIV9hZqanWAnbCbkhDePQ2AsshkrxwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                        <uix:Target CvTextArea="1230, 131, 15, 23" CvTextArgument="$" CvType="Text" DesignTimeRectangle="1222, 117, 32, 52" ElementType="Button" FriendlyName="'BUTTON'" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='secondary' class='md-btn md-pointer--hover md-text md-inline-block' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAA4CAYAAACVFFp4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHoSURBVGhD7ZnrSgJBFIB9o8zSzVtRVkQiRVQglWiiiWUKSQhdwLQCL6l5W2+YRfRQ1bOcmsHdEo6OMf5YYgY+Fuacw/lgZ2cGVgcaG7r3j0/QEjq9wQRaYEpvoAihYQghFkKIhRBiIYRYCCEWQojF/xUyzErgdG2pGIxmNI/FxITMlgXo9N5UrPNLaB6L/ydEXk0gFIF8qT4gVHiU4TAQRmtGwSVkMtsg+1BRJeT2M9xlivSpzJ1E42jtMLiEwqdntGmt0QXXxrY6Pz0jwZ7Hr0otrzoH6kbBJZRMZ2jDi+sUGq/IXRo/8AbROAaXUPz8kjbMlWowa7KgOX+FS2jNuQmt7iuVKpab4POHwGpbRHPHhUuIsOv2QFnuUCmF+2wJQscxMM3Z0JpRcAsRZr4/ffe+V11TCo/VNrg2fxb7OExE6Ddkg/T4gpAr1qgUeaWOlXU0F2PiQgpkkZeqTSoVT1yhORhcQoWyTBsehaNoPHGZpPHUXRaNY3AJRWLntGGj8wJbO+6BmH3BAfVWj8YjsfF3ay4ho2QbOMNqzSdI3+fh5jYDjf7xkStUQTLb0XoMLiEC+cKGHa5k/q/3Im4hBXEfYqG5K+ykEEIshBALIcRCCLEQQiyEEAshxEK7Qv2fwZoZGhMC+AKVrTxzbVrbawAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
                   </uix:TargetAnchorable>
@@ -469,7 +403,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NCheckState>
-              <uix:NCheckState DisplayName="Check if Truck Entry page was opened correctly" sap:VirtualizedContainerService.HintSize="1046,637" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Timeout="5" Version="V3">
+              <uix:NCheckState DisplayName="Check if Truck Entry page was opened correctly" sap:VirtualizedContainerService.HintSize="1046,597" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Timeout="5" Version="V3">
                 <uix:NCheckState.IfExists>
                   <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,380" sap2010:WorkflowViewState.IdRef="Sequence_19">
                     <sap:WorkflowViewStateService.ViewState>
