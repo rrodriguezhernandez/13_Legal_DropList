@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1042,864</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1874,940</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -1096,25 +1096,25 @@
                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <uga:WriteRowConnections ArrayRow="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DataRow="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="13_Legal_DropList_MasterReport" BrowserItemId="1-ITESKpYf0SvLQBAhf7nzoe4VQuSVeqarabQo1MsvXc" ConnectionId="6fd82878-44d7-43f4-bbf0-a01d6fb2942c" DataType="IndividualFields" DisplayName="Write Row" HasHeaders="True" sap:VirtualizedContainerService.HintSize="434,592" sap2010:WorkflowViewState.IdRef="WriteRowConnections_3" ItemSelectionMode="Browse" Range="Sheet1" RowPosition="0" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False" WriteMode="Append">
+                                        <uga:WriteRowConnections ArrayRow="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DataRow="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="13_Legal_DropList_MasterReport" BrowserItemId="13-MaSXenJqVvGGZK_gcnJJBrT2NMwwMD0PJSidQXv2I" ConnectionId="6fd82878-44d7-43f4-bbf0-a01d6fb2942c" DataType="IndividualFields" DisplayName="Write Row" HasHeaders="True" sap:VirtualizedContainerService.HintSize="434,592" sap2010:WorkflowViewState.IdRef="WriteRowConnections_3" ItemSelectionMode="Browse" Range="Sheet1" RowPosition="0" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False" WriteMode="Append">
                                           <uga:WriteRowConnections.AllFields>
                                             <x:Array Type="ugsc:IRangeField">
-                                              <ugsmc:RangeColumn DisplayName="Execution Date" Guid="7bc4075e-359f-4595-bed3-35d57d889f61" Name="Execution Date">
+                                              <ugsmc:RangeColumn DisplayName="Execution Date" Guid="ba54795f-ff81-4637-8014-5edbdf474cea" Name="Execution Date">
                                                 <ugsmc:RangeColumn.Sample>
                                                   <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
                                                 </ugsmc:RangeColumn.Sample>
                                               </ugsmc:RangeColumn>
-                                              <ugsmc:RangeColumn DisplayName="No. of cases processed" Guid="1a5ffed5-e8e5-41d7-a667-0375b7ca7f76" Name="No. of cases processed">
+                                              <ugsmc:RangeColumn DisplayName="No. of cases processed" Guid="158e8a41-bc0f-4ddc-be05-67cb2d9a3031" Name="No. of cases processed">
                                                 <ugsmc:RangeColumn.Sample>
                                                   <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
                                                 </ugsmc:RangeColumn.Sample>
                                               </ugsmc:RangeColumn>
-                                              <ugsmc:RangeColumn DisplayName="No. of Exceptions" Guid="d03213b2-5ac9-4b95-9289-cb600e0fdea1" Name="No. of Exceptions">
+                                              <ugsmc:RangeColumn DisplayName="No. of Exceptions" Guid="db38c2f3-59a2-4955-bc74-787bcf76c5f6" Name="No. of Exceptions">
                                                 <ugsmc:RangeColumn.Sample>
                                                   <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
                                                 </ugsmc:RangeColumn.Sample>
                                               </ugsmc:RangeColumn>
-                                              <ugsmc:RangeColumn DisplayName="Reference report" Guid="a865dca2-8455-4841-b82a-d42dca5ff7db" Name="Reference report">
+                                              <ugsmc:RangeColumn DisplayName="Reference report" Guid="9d290af1-8cd4-4fe3-a293-6e0a893c7913" Name="Reference report">
                                                 <ugsmc:RangeColumn.Sample>
                                                   <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
                                                 </ugsmc:RangeColumn.Sample>
@@ -1153,22 +1153,22 @@
                                             <uga:ActivityState>
                                               <uga:ActivityState.SelectedFields>
                                                 <scg:List x:TypeArguments="uga:DynamicField" Capacity="4">
-                                                  <uga:DynamicField Id="7bc4075e-359f-4595-bed3-35d57d889f61" Name="dynamicField_AddRangeProperty_20">
+                                                  <uga:DynamicField Id="ba54795f-ff81-4637-8014-5edbdf474cea" Name="dynamicField_AddRangeProperty_20">
                                                     <uga:DynamicField.ArgumentValue>
                                                       <InArgument x:TypeArguments="x:Object">[DateTime.Now.ToString("M/d/yyyy")]</InArgument>
                                                     </uga:DynamicField.ArgumentValue>
                                                   </uga:DynamicField>
-                                                  <uga:DynamicField Id="1a5ffed5-e8e5-41d7-a667-0375b7ca7f76" Name="dynamicField_AddRangeProperty_21">
+                                                  <uga:DynamicField Id="158e8a41-bc0f-4ddc-be05-67cb2d9a3031" Name="dynamicField_AddRangeProperty_21">
                                                     <uga:DynamicField.ArgumentValue>
                                                       <InArgument x:TypeArguments="x:Object">[TotalCompletedCases]</InArgument>
                                                     </uga:DynamicField.ArgumentValue>
                                                   </uga:DynamicField>
-                                                  <uga:DynamicField Id="d03213b2-5ac9-4b95-9289-cb600e0fdea1" Name="dynamicField_AddRangeProperty_22">
+                                                  <uga:DynamicField Id="db38c2f3-59a2-4955-bc74-787bcf76c5f6" Name="dynamicField_AddRangeProperty_22">
                                                     <uga:DynamicField.ArgumentValue>
                                                       <InArgument x:TypeArguments="x:Object">[TotalExceptionCases]</InArgument>
                                                     </uga:DynamicField.ArgumentValue>
                                                   </uga:DynamicField>
-                                                  <uga:DynamicField Id="a865dca2-8455-4841-b82a-d42dca5ff7db" Name="dynamicField_AddRangeProperty_23">
+                                                  <uga:DynamicField Id="9d290af1-8cd4-4fe3-a293-6e0a893c7913" Name="dynamicField_AddRangeProperty_23">
                                                     <uga:DynamicField.ArgumentValue>
                                                       <InArgument x:TypeArguments="x:Object">[CurrReportFilePath.Uri]</InArgument>
                                                     </uga:DynamicField.ArgumentValue>
