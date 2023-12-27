@@ -6,7 +6,7 @@
     <x:Property Name="out_BizExcpt" Type="OutArgument(x:Boolean)" />
     <x:Property Name="out_CurrentAsignee" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1234,6160</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,5908</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -109,7 +109,7 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Remove Sales rep" sap:VirtualizedContainerService.HintSize="750,6095" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence DisplayName="Remove Sales rep" sap:VirtualizedContainerService.HintSize="750,5843" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="CarrierCode" />
       <Variable x:TypeArguments="x:String" Name="CarrierName" />
@@ -168,13 +168,13 @@
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
     <ui:LogMessage DisplayName="Loggin Carrier code for reference" sap:VirtualizedContainerService.HintSize="688,141" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Started processing transaction with carrier code: &quot; + CarrierCode]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Working on Truck Entry Page" sap:VirtualizedContainerService.HintSize="688,5523" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Working on Truck Entry Page" sap:VirtualizedContainerService.HintSize="688,5271" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="654,5306" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="654,5054" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="SelectorCarrierCode" />
             </Sequence.Variables>
@@ -281,15 +281,6 @@
                 </uix:TargetAnchorable>
               </uix:NTypeInto.Target>
             </uix:NTypeInto>
-            <Assign DisplayName="Get random delay duration" sap:VirtualizedContainerService.HintSize="592,82" sap2010:WorkflowViewState.IdRef="Assign_1">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Int32">[TimerDelay]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Int32">[New Random().Next(1, 5)]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Delay DisplayName="Delay timer" Duration="[TimeSpan.FromSeconds(TimerDelay)]" sap:VirtualizedContainerService.HintSize="592,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
             <uix:NCheckState DisplayName="Check if no results window appears" sap:VirtualizedContainerService.HintSize="592,52" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="5a3dd694-84f9-4d6b-9af5-4caed988b5b4" Version="V3">
               <uix:NCheckState.IfExists>
                 <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="541,764" sap2010:WorkflowViewState.IdRef="Sequence_25">
@@ -337,7 +328,7 @@
               <uix:NCheckState.Target>
                 <uix:TargetAnchorable BrowserURL="https://xlr8.arrivelogistics.com/#/truck-entry" CvTextArea="1750, 234, 154, 16" CvTextArgument="! Carrier not found" CvType="Text" DesignTimeRectangle="1730, 232, 186, 24" DesignTimeScaleFactor="1" FriendlyName="'error_outlineCarrier not'" FullSelectorArgument="&lt;webctrl parentid='carriers-search-empty-content' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='carriers-search-empty-content' tag='DIV' type='' class='carriers-search-empty__error' aaname='' check:innerText='*Carrier not found*' /&gt;" Guid="33ccbfa7-8c88-48b3-b90f-019a181586e6" InformativeScreenshot="7f08ae753045e6b76e9ac98a7d93be49.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Truck Entry' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target DesignTimeRectangle="1723, 225, 200, 84" FriendlyName="'error_outlineCarrier not'" FullSelectorArgument="&lt;webctrl parentid='carriers-search-empty-dialog' tag='SECTION' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='carriers-search-empty-dialog' tag='SECTION' type='' class='md-dialog-content md-dialog-content--padded' aaname='' check:innerText='*Carrier not found&amp;#xD;&amp;#xA;GO TO CARRIER SEARCH*' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
