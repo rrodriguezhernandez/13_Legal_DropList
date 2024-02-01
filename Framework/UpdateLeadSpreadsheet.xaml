@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,702</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,742</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>UpdateLeadSpreadsheet_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -158,16 +158,16 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="492,452" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3">
+        <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="492,656" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3">
           <ui:RetryScope.ActivityBody>
             <ActivityAction>
-              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="450,163" sap2010:WorkflowViewState.IdRef="Sequence_41">
+              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="450,367" sap2010:WorkflowViewState.IdRef="Sequence_41">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <uga:ReadRangeConnections x:TypeArguments="sd:DataTable" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" ColumnNames="{x:Array Type=x:String}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" RangeInformation="{x:Null}" RangeMetadata="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" ConnectionId="6fd82878-44d7-43f4-bbf0-a01d6fb2942c" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_2" ItemSelectionMode="UrlOrId" ManualEntrySpreadsheetId="[In_Config(&quot;LeadSheetID&quot;).ToString]" Range="MASTER" ReadAs="Values" Result="[tblLead]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
+                <uga:ReadRangeConnections x:TypeArguments="sd:DataTable" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" ColumnNames="{x:Array Type=x:String}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" RangeInformation="{x:Null}" RangeMetadata="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" ConnectionId="950c52e6-483e-4e3b-b982-a4f146c86cb4" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="388,256" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_2" ItemSelectionMode="UrlOrId" ManualEntrySpreadsheetId="[In_Config(&quot;LeadSheetID&quot;).ToString]" Range="MASTER" ReadAs="Values" Result="[tblLead]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
                   <uga:ReadRangeConnections.FileIdBackup>
                     <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="UrlOrId">
                       <usau:BackupSlot.BackupValues>
@@ -180,7 +180,7 @@
                   </uga:ReadRangeConnections.FileIdBackup>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -203,7 +203,7 @@
               <av:Size x:Key="ShapeSize">200,81</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Search for Carrier Code in spreadsheet" sap:VirtualizedContainerService.HintSize="756,2380" sap2010:WorkflowViewState.IdRef="Sequence_35">
+          <Sequence DisplayName="Search for Carrier Code in spreadsheet" sap:VirtualizedContainerService.HintSize="756,2561" sap2010:WorkflowViewState.IdRef="Sequence_35">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Int32" Name="RowIndex" />
               <Variable x:TypeArguments="scg:Dictionary(x:String, x:Int32)" Default="[New Dictionary(Of String, Int32)]" Name="ColumnsSheet" />
@@ -266,22 +266,22 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
-            <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:Int32)" CurrentIndex="{x:Null}" DisplayName="Lookup for Carrier code in each column" sap:VirtualizedContainerService.HintSize="694,1989" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ColumnsSheet]">
+            <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:Int32)" CurrentIndex="{x:Null}" DisplayName="Lookup for Carrier code in each column" sap:VirtualizedContainerService.HintSize="694,2170" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ColumnsSheet]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, x:Int32)">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="scg:KeyValuePair(x:String, x:Int32)" Name="currentItem" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="660,1803" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="660,1984" sap2010:WorkflowViewState.IdRef="Sequence_37">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[tblLead]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="618,292" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnIndex="[currentItem.Value]" LookupValue="[CarrierCode]" RowIndex="[RowIndex]" />
-                    <If Condition="[RowIndex &gt; 0]" sap:VirtualizedContainerService.HintSize="618,1383" sap2010:WorkflowViewState.IdRef="If_6">
+                    <If Condition="[RowIndex &gt; 0]" sap:VirtualizedContainerService.HintSize="618,1564" sap2010:WorkflowViewState.IdRef="If_6">
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="584,1201" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                        <Sequence sap:VirtualizedContainerService.HintSize="584,1382" sap2010:WorkflowViewState.IdRef="Sequence_38">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="scg:IList(x:String)" Name="listResults" />
                           </Sequence.Variables>
@@ -299,10 +299,10 @@
                             </Assign.Value>
                           </Assign>
                           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="542,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Carrier code found in cell &quot; + currentItem.Key+RowIndex.ToString]" />
-                          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="542,810" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:02">
+                          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="542,991" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:02">
                             <ui:RetryScope.ActivityBody>
                               <ActivityAction>
-                                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="500,521" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="500,702" sap2010:WorkflowViewState.IdRef="Sequence_42">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -369,6 +369,7 @@
                                       </Catch>
                                     </TryCatch.Catches>
                                   </TryCatch>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,141" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Carrier code removed&quot;]" />
                                 </Sequence>
                               </ActivityAction>
                             </ui:RetryScope.ActivityBody>
