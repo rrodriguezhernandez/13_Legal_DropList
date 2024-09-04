@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1256,9268</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1847,9315</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -60,6 +60,8 @@
       <x:String>UiPath.GSuite.Activities.Enums</x:String>
       <x:String>UiPath.GSuite.Activities.Drive.Filters</x:String>
       <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -120,9 +122,10 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Private.Xml</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1266,9203" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1266,9250" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ArriveNow_Username" />
       <Variable x:TypeArguments="ss:SecureString" Name="ArriveNow_Password" />
@@ -150,20 +153,20 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Loggin into Arrive Portal" sap:VirtualizedContainerService.HintSize="1142,1952" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Loggin into Arrive Portal" sap:VirtualizedContainerService.HintSize="1142,1966" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,1663" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,1717" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NCheckState DisplayName="Check if there is an active session open" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V3">
+              <uix:NCheckState DisplayName="Check if there is an active session open" sap:VirtualizedContainerService.HintSize="450,84" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="7aa6c8e2-3267-4559-ab77-ef2742355273" Version="V3">
                 <uix:NCheckState.IfExists>
                   <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,652" sap2010:WorkflowViewState.IdRef="Sequence_13">
                     <sap:WorkflowViewStateService.ViewState>
@@ -266,7 +269,7 @@
                 </uix:NClick>
                 <Delay Duration="00:00:07" sap:VirtualizedContainerService.HintSize="388,115" sap2010:WorkflowViewState.IdRef="Delay_1" />
               </Sequence>
-              <uix:NCheckState DisplayName="Check if login was succesful" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="7aa6c8e2-3267-4559-ab77-ef2742355273" Timeout="5" Version="V3">
+              <uix:NCheckState DisplayName="Check if login was succesful" sap:VirtualizedContainerService.HintSize="450,84" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="7aa6c8e2-3267-4559-ab77-ef2742355273" Timeout="5" Version="V3">
                 <uix:NCheckState.IfExists>
                   <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_15">
                     <sap:WorkflowViewStateService.ViewState>
@@ -347,21 +350,21 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </uix:NApplicationCard>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Accelerate" sap:VirtualizedContainerService.HintSize="1142,3912" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Accelerate" sap:VirtualizedContainerService.HintSize="1142,3898" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1108,3672" sap2010:WorkflowViewState.IdRef="Sequence_26">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1108,3658" sap2010:WorkflowViewState.IdRef="Sequence_26">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NCheckState DisplayName="Check if Login screen appears" sap:VirtualizedContainerService.HintSize="1046,1430" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V3">
+              <uix:NCheckState DisplayName="Check if Login screen appears" sap:VirtualizedContainerService.HintSize="1046,1447" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V3">
                 <uix:NCheckState.IfExists>
-                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="512,1141" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="512,1198" sap2010:WorkflowViewState.IdRef="Sequence_27">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -372,7 +375,7 @@
                         <uix:TargetAnchorable BrowserURL="https://accelerate.arrivelogistics.com/login/" CVScreenId="8829ea3f-5d94-405a-b3ae-93d1094e09db" CvElementArea="850, 717, 235, 69" CvTextArea="902, 745, 131, 20" CvTextArgument="Employee Login" CvType="Button" DesignTimeRectangle="855, 721, 226, 62" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl id='employeeLogin' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='employeeLogin' tag='BUTTON' type='' class='button button--ujarak button--border-thin button--text-thick' aaname='                         Employee Login                     ' check:innerText='Employee Login' /&gt;" Guid="9622e8d2-d699-4415-90f4-a457e66efe75" InformativeScreenshot="0feb02504fa571f1981037bfce864cd2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Accelerate' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <Sequence DisplayName="Login into Arrive portal" sap:VirtualizedContainerService.HintSize="450,862" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                    <Sequence DisplayName="Login into Arrive portal" sap:VirtualizedContainerService.HintSize="450,919" sap2010:WorkflowViewState.IdRef="Sequence_28">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -401,7 +404,7 @@
                           </uix:TargetAnchorable>
                         </uix:NTypeInto.Target>
                       </uix:NTypeInto>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click Sign in" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V3">
+                      <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click Sign in" sap:VirtualizedContainerService.HintSize="388,189" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V3">
                         <uix:NClick.Target>
                           <uix:TargetAnchorable BrowserURL="https://portal.arrivelogistics.com/oauth2/v1/authorize?client_id=okta.2b1959c8-bcc0-56eb-a589-cfcfb7422f26&amp;code_challenge=65Fz0HCxHOVccdu8lHFtCI4LghKItwz7i6cg7iydHoo&amp;code_challenge_method=S256&amp;nonce=uJ3jtAT7510ibMMTqBnXk5Stzjq4x4VGjFCJZHf24jp3VhAUjfJYaTXIsKTuhqbn&amp;redirect_uri=https%3A%2F%2Fportal.arrivelogistics.com%2Fenduser%2Fcallback&amp;response_type=code&amp;state=WPUjEY2NkGnXjUrjGXj7VPDDBba1kDGKH4LChSsAYYlv5ocGRqqZ17duktuJ6dk9&amp;scope=openid%20profile%20email%20okta.users.read.self%20okta.users.manage.self%20okta.internal.enduser.read%20okta.internal.enduser.manage%20okta.enduser.dashboard.read%20okta.enduser.dashboard.manage" CvElementArea="1128, 624, 318, 54" CvTextArea="1265, 643, 44, 16" CvTextArgument="Sign in" CvType="Button" DesignTimeRectangle="1130, 614, 316, 50" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' class='button button-primary' aaname='Sign in' check:text='Sign in' /&gt;" Guid="5d894476-bc50-45d2-b6c3-414936a931de" InformativeScreenshot="1e05020485657ac56e7e1819db49918c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Arrive Logistics - Sign In' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                             <uix:TargetAnchorable.Anchors>
@@ -412,7 +415,7 @@
                           </uix:TargetAnchorable>
                         </uix:NClick.Target>
                       </uix:NClick>
-                      <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                      <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="388,115" sap2010:WorkflowViewState.IdRef="Delay_3" />
                     </Sequence>
                   </Sequence>
                 </uix:NCheckState.IfExists>
@@ -429,7 +432,7 @@
                 <uix:NCheckState.Target>
                   <uix:TargetAnchorable BrowserURL="https://accelerate.arrivelogistics.com/login/#/truck-entry" CvTextArea="899, 621, 777, 72" CvTextArgument="A R R I V E NOW." CvType="Text" DesignTimeRectangle="581, 439, 774, 137" DesignTimeScaleFactor="1" ElementType="Icon" FullSelectorArgument="&lt;webctrl id='arriveLogisticsLogo' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl id='arriveLogisticsLogo' tag='IMG' type='' class='arrive-logistics-logo' aaname='' /&gt;" Guid="6200e2da-9ffa-49f3-a321-546d16831515" InformativeScreenshot="ba1eceda9466d20b06a5f5974ca37a48.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Accelerate' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                         <uix:Target CvElementArea="720, 684, 233, 69" CvTextArea="771, 711, 132, 21" CvTextArgument="Employee Login" CvType="Button" DesignTimeRectangle="855, 721, 226, 62" ElementType="Button" FullSelectorArgument="&lt;webctrl id='employeeLogin' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='employeeLogin' tag='BUTTON' type='' class='button button--ujarak button--border-thin button--text-thick' aaname='                         Employee Login                     ' check:innerText='Employee Login' /&gt;" Guid="9645ce46-a80c-428f-b3ae-d2ff600d24eb" SearchSteps="FuzzySelector" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
@@ -491,16 +494,16 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NCheckState>
-              <uix:NCheckState DisplayName="Check if Truck Entry page was opened correctly" sap:VirtualizedContainerService.HintSize="1046,629" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Timeout="5" Version="V3">
+              <uix:NCheckState DisplayName="Check if Truck Entry page was opened correctly" sap:VirtualizedContainerService.HintSize="1046,621" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Timeout="5" Version="V3">
                 <uix:NCheckState.IfExists>
-                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,380" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,372" sap2010:WorkflowViewState.IdRef="Sequence_19">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Succesfully opened Truck Entry page&quot;]" />
-                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,175" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Succesfully opened Truck Entry page&quot;]" />
+                    <Assign sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Assign_4">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Boolean">[out_ArrivePortalException]</OutArgument>
                       </Assign.To>
@@ -511,14 +514,14 @@
                   </Sequence>
                 </uix:NCheckState.IfExists>
                 <uix:NCheckState.IfNotExists>
-                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,380" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,372" sap2010:WorkflowViewState.IdRef="Sequence_20">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Could not open Truck Entry page&quot;]" />
-                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,175" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Could not open Truck Entry page&quot;]" />
+                    <Assign sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Assign_3">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Boolean">[out_ArrivePortalException]</OutArgument>
                       </Assign.To>
@@ -544,23 +547,23 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NCheckState>
-              <Sequence DisplayName="Check if a message box appears in ANow" sap:VirtualizedContainerService.HintSize="1046,827" sap2010:WorkflowViewState.IdRef="Sequence_41">
+              <Sequence DisplayName="Check if a message box appears in ANow" sap:VirtualizedContainerService.HintSize="1046,804" sap2010:WorkflowViewState.IdRef="Sequence_41">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <uix:NCheckState DisplayName="Check App State '.pendo-start-focus-bump…'" sap:VirtualizedContainerService.HintSize="954,712" sap2010:WorkflowViewState.IdRef="NCheckState_7" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Timeout="3" Version="V3">
+                <uix:NCheckState DisplayName="Check App State '.pendo-start-focus-bump…'" sap:VirtualizedContainerService.HintSize="954,689" sap2010:WorkflowViewState.IdRef="NCheckState_7" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Timeout="3" Version="V3">
                   <uix:NCheckState.IfExists>
-                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,455" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,447" sap2010:WorkflowViewState.IdRef="Sequence_39">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Message box appeared, closing it&quot;]" />
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '×'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V3">
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,175" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Message box appeared, closing it&quot;]" />
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '×'" sap:VirtualizedContainerService.HintSize="388,182" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2949e484-4320-49e5-9553-e0afaf9c8c49" Version="V3">
                         <uix:NClick.Target>
                           <uix:TargetAnchorable BrowserURL="https://xlr8.arrivelogistics.com/#/" CvElementArea="1697, 491, 26, 26" CvType="CloseButton" DesignTimeRectangle="1701, 488, 19, 32" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-label='Close' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Close' tag='BUTTON' type='' class='_pendo-close-guide' aaname='×' check:innerText='×' /&gt;" Guid="c4a5e6b1-5513-4e23-a883-e4be0b4c6dce" InformativeScreenshot="6810a8947ff4407e3340a4fddc79a7f5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Accelerate' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
                         </uix:NClick.Target>
@@ -601,27 +604,28 @@
         </sap:WorkflowViewStateService.ViewState>
       </uix:NApplicationCard>
     </Sequence>
-    <Sequence DisplayName="Trimm whitespaces from LeadSheet" sap:VirtualizedContainerService.HintSize="1204,2638" sap2010:WorkflowViewState.IdRef="Sequence_30">
+    <Sequence DisplayName="Trimm whitespaces from LeadSheet" sap:VirtualizedContainerService.HintSize="1204,2685" sap2010:WorkflowViewState.IdRef="Sequence_30">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Open Lead GSheet" sap:VirtualizedContainerService.HintSize="1050,2527" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="f8cab7ff-8367-43f4-a6c5-43a1f458b43a" Version="V2" WindowResize="Maximize">
+      <ui:Comment sap:VirtualizedContainerService.HintSize="1050,88" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// in_Config(&quot;LeadSheetURL&quot;).ToString" />
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Open Lead GSheet" sap:VirtualizedContainerService.HintSize="1050,2486" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="f8cab7ff-8367-43f4-a6c5-43a1f458b43a" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,2310" sap2010:WorkflowViewState.IdRef="Sequence_31">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,2246" sap2010:WorkflowViewState.IdRef="Sequence_31">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NCheckState DisplayName="Check App State 'File'" sap:VirtualizedContainerService.HintSize="954,662" sap2010:WorkflowViewState.IdRef="NCheckState_6" ScopeIdentifier="f8cab7ff-8367-43f4-a6c5-43a1f458b43a" Timeout="12" Version="V3">
+              <uix:NCheckState DisplayName="Check App State 'File'" sap:VirtualizedContainerService.HintSize="954,678" sap2010:WorkflowViewState.IdRef="NCheckState_6" ScopeIdentifier="f8cab7ff-8367-43f4-a6c5-43a1f458b43a" Timeout="10" Version="V3">
                 <uix:NCheckState.IfExists>
                   <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_32">
                     <sap:WorkflowViewStateService.ViewState>
@@ -630,27 +634,27 @@
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Lead sheet opened successfully&quot;]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,168" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Lead sheet opened successfully&quot;]" />
                   </Sequence>
                 </uix:NCheckState.IfExists>
                 <uix:NCheckState.IfNotExists>
-                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,445" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,429" sap2010:WorkflowViewState.IdRef="Sequence_33">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Could not open Lead sheet&quot;]" />
-                    <uix:NNavigateBrowser Action="CloseTab" DisplayName="Navigate Browser - Close Tab" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_2" Version="V3" />
-                    <ui:Return sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="Return_2" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,175" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Could not open Lead sheet&quot;]" />
+                    <uix:NNavigateBrowser Action="CloseTab" DisplayName="Navigate Browser - Close Tab" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_2" Version="V3" />
+                    <ui:Return sap:VirtualizedContainerService.HintSize="388,50" sap2010:WorkflowViewState.IdRef="Return_2" />
                   </Sequence>
                 </uix:NCheckState.IfNotExists>
                 <uix:NCheckState.Target>
-                  <uix:TargetAnchorable BrowserURL="https://docs.google.com/spreadsheets/d/1RznMfj-ZUu9niycgk-Nd9cIZ3DtH3npWY9vLRrR38go/edit#gid=1159096813" CvTextArea="69, 167, 24, 14" CvTextArgument="File" CvType="Text" DesignTimeRectangle="62, 163, 39, 24" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='File' aria-role='menuitem' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='File' aria-role='menuitem' tag='DIV' type='' class='menu-button goog-control goog-inline-block' check:innerText='File' /&gt;" Guid="e6cefcc2-d643-4d64-ba89-7e2ab6cc633f" InformativeScreenshot="795328f0d860f75859c340e4da633342.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Arrive Carrier Team - Leads Sheet 3/7 - Google Sheets' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable BrowserURL="https://docs.google.com/spreadsheets/d/1RznMfj-ZUu9niycgk-Nd9cIZ3DtH3npWY9vLRrR38go/edit#gid=1159096813" CvTextArea="69, 167, 24, 14" CvTextArgument="File" CvType="Text" DesignTimeRectangle="62, 163, 39, 24" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='File' aria-role='menuitem' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='File' aria-role='menuitem' tag='DIV' type='' class='menu-button goog-control goog-inline-block' check:innerText='File' /&gt;" Guid="e6cefcc2-d643-4d64-ba89-7e2ab6cc633f" InformativeScreenshot="ec82bb20b8ff346ffb0506b04cb19c30.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Arrive Carrier Team - Leads Sheet 3/7 - Google Sheets' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                        <uix:Target CvTextArea="67, 141, 303, 16" CvTextArgument="Arrive Carrier Team - Leads Sheet 3/7" CvType="Text" DesignTimeRectangle="62, 137, 319, 24" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='docs-title-input' aaname='' check:text='Arrive Carrier Team*' /&gt;" Guid="c03ff33a-5562-4e04-9c94-e6fe5d087404" ImageBase64="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" SearchSteps="FuzzySelector" />
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CVScreenId="65840083-2f6d-44fa-b72a-11ca9a65b81e" CvTextArea="67, 141, 274, 16" CvTextArgument="Arrive Carrier Team*" CvType="Text" DesignTimeRectangle="69, 139, 271, 22" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' type='' class='docs-title-input-label-inner' aaname='Arrive Carrier Team - Leads Sheet' check:innerText='Arrive Carrier Team*' /&gt;" Guid="ebab1692-7537-4b27-99d7-6c6be8746b72" SearchSteps="FuzzySelector, CV" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
                   </uix:TargetAnchorable>
@@ -662,16 +666,16 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NCheckState>
-              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="954,1493" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="954,1478" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                 <TryCatch.Try>
-                  <Sequence sap:VirtualizedContainerService.HintSize="450,1265" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                  <Sequence sap:VirtualizedContainerService.HintSize="416,1225" sap2010:WorkflowViewState.IdRef="Sequence_37">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="388,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][d(ctrl)]a[u(ctrl)][u(hk)]" Version="V3" />
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DelayBefore="1" DisplayName="Click 'Data'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f8cab7ff-8367-43f4-a6c5-43a1f458b43a" Version="V3">
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="354,211" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][d(ctrl)]a[u(ctrl)][u(hk)][d(hk)][d(ctrl)]a[u(ctrl)][u(hk)]" Version="V3" />
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DelayBefore="1" DisplayName="Click 'Data'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f8cab7ff-8367-43f4-a6c5-43a1f458b43a" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://docs.google.com/spreadsheets/d/1RznMfj-ZUu9niycgk-Nd9cIZ3DtH3npWY9vLRrR38go/edit?pli=1#gid=1159096813" CvTextArea="312, 168, 31, 13" CvTextArgument="Data" CvType="Text" DesignTimeRectangle="304, 163, 47, 24" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Data' aria-role='menuitem' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Data' aria-role='menuitem' tag='DIV' type='' class='menu-button goog-control goog-inline-block' check:innerText='Data' /&gt;" Guid="61d79adc-ed0d-4030-bf77-89664093885a" InformativeScreenshot="c519d63e3fe7f52e6587b0d093878eb4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Arrive Carrier Team - Leads Sheet 3/7 - Google Sheets' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -682,7 +686,7 @@
                         </uix:TargetAnchorable>
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Data validation'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f8cab7ff-8367-43f4-a6c5-43a1f458b43a" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Data validation'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f8cab7ff-8367-43f4-a6c5-43a1f458b43a" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://docs.google.com/spreadsheets/d/1RznMfj-ZUu9niycgk-Nd9cIZ3DtH3npWY9vLRrR38go/edit#gid=1159096813" CvTextArea="342, 604, 86, 17" CvTextArgument="Data cleanup" CvType="Text" DesignTimeRectangle="343, 603, 225, 20" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='goog-menuitem-content' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div' idx='155' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='goog-menuitem-content' type='' aaname='' tag='DIV' check:innerText='Data cleanup&amp;#xD;&amp;#xA;►' /&gt;" Guid="63d2699a-8b21-4bcd-a368-f7f508c2c58f" InformativeScreenshot="6398ba306f9d1c9a597d0b5a42b8d789.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Arrive Carrier Team - Leads Sheet 3/7 - Google Sheets' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -693,7 +697,7 @@
                         </uix:TargetAnchorable>
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="2" DisplayName="Click 'NewCleanup suggestions(…'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f8cab7ff-8367-43f4-a6c5-43a1f458b43a" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="2" DisplayName="Click 'NewCleanup suggestions(…'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f8cab7ff-8367-43f4-a6c5-43a1f458b43a" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://docs.google.com/spreadsheets/d/1RznMfj-ZUu9niycgk-Nd9cIZ3DtH3npWY9vLRrR38go/edit?pli=1#gid=1159096813" CvTextArea="641, 675, 107, 17" CvTextArgument="Trim whitespace" CvType="Text" DesignTimeRectangle="626, 668, 260, 32" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl aria-role='menuitem' css-selector='body&amp;gt;div&amp;gt;div' idx='561' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='menuitem' type='' class='goog-menuitem apps-menuitem' tag='DIV' aaname='' check:innerText='Trim whitespace' /&gt;" Guid="fb6aed8e-1835-43b4-a4e4-2977b4046ef8" InformativeScreenshot="f51fa9c46f62acd536f048d1dbfa505e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Arrive Carrier Team - Leads Sheet 3/7 - Google Sheets' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -704,16 +708,16 @@
                         </uix:TargetAnchorable>
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f8cab7ff-8367-43f4-a6c5-43a1f458b43a" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f8cab7ff-8367-43f4-a6c5-43a1f458b43a" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://docs.google.com/spreadsheets/d/1RznMfj-ZUu9niycgk-Nd9cIZ3DtH3npWY9vLRrR38go/edit?pli=1#gid=1159096813" CvElementArea="1150, 582, 76, 40" CvTextArea="1176, 594, 23, 14" CvTextArgument="OK" CvType="Button" DesignTimeRectangle="1152, 584, 72, 36" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='OK' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='OK' tag='BUTTON' type='' class='goog-buttonset-default goog-buttonset-action' check:innerText='OK' /&gt;" Guid="caa3d68c-eebe-4e94-a2bb-49bb43112db8" InformativeScreenshot="e84b93caebd38e72afc35ce786fe5534.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Arrive Carrier Team - Leads Sheet 3/7 - Google Sheets' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Blank spaces removed successfully from Lead sheet&quot;]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,168" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Blank spaces removed successfully from Lead sheet&quot;]" />
                   </Sequence>
                 </TryCatch.Try>
                 <TryCatch.Catches>
-                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="454,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="420,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -724,14 +728,14 @@
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                       </ActivityAction.Argument>
-                      <Sequence sap:VirtualizedContainerService.HintSize="450,380" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                      <Sequence sap:VirtualizedContainerService.HintSize="450,315" sap2010:WorkflowViewState.IdRef="Sequence_38">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Unable to remove spaces from Lead Sheet&quot;]" />
-                        <uix:NNavigateBrowser Action="CloseTab" DisplayName="Navigate Browser - Close Tab" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_3" Version="V3" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,175" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Unable to remove spaces from Lead Sheet&quot;]" />
+                        <uix:NNavigateBrowser Action="CloseTab" DisplayName="Navigate Browser - Close Tab" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_3" Version="V3" />
                       </Sequence>
                     </ActivityAction>
                   </Catch>
@@ -741,7 +745,7 @@
           </ActivityAction>
         </uix:NApplicationCard.Body>
         <uix:NApplicationCard.TargetApp>
-          <uix:TargetApp Area="-8, -8, 1936, 995" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="55e7a5a651c09743c2c417ac4efe2545.jpg" Selector="&lt;html app='chrome.exe' url='https://docs.google.com/spreadsheets/d/1RznMfj-ZUu9niycgk-Nd9cIZ3DtH3npWY9vLRrR38go/edit?usp=sharing' /&gt;" Title="Arrive Carrier Team - Leads Sheet 3/7 - Google Sheets" Url="[in_Config(&quot;LeadSheetURL&quot;).ToString]" />
+          <uix:TargetApp Area="-8, -8, 1936, 995" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="55e7a5a651c09743c2c417ac4efe2545.jpg" Selector="&lt;html app='chrome.exe' url='https://docs.google.com/spreadsheets/d/1RznMfj-ZUu9niycgk-Nd9cIZ3DtH3npWY9vLRrR38go/edit?pli=1&amp;amp;gid=1185303236#gid=1185303236' /&gt;" Title="Arrive Carrier Team - Leads Sheet 3/7 - Google Sheets" Url="[in_Config(&quot;LeadSheetURL&quot;).ToString]" />
         </uix:NApplicationCard.TargetApp>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
